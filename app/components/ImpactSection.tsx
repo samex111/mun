@@ -1,0 +1,257 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
+interface Stat {
+  value: number;
+  suffix: string;
+  label: string;
+  size: 'hero' | 'large' | 'medium';
+  align: 'left' | 'right';
+}
+
+const stats: Stat[] = [
+  {
+    value: 11000,
+    suffix: '+',
+    label: 'Delegates Trained',
+    size: 'hero',
+    align: 'left',
+  },
+  {
+    value: 70,
+    suffix: '+',
+    label: 'National Conferences',
+    size: 'large',
+    align: 'right',
+  },
+  {
+    value: 10,
+    suffix: '+',
+    label: 'International Conferences',
+    size: 'large',
+    align: 'left',
+  },
+  {
+    value: 55,
+    suffix: '+',
+    label: 'Best Delegate Awards',
+    size: 'medium',
+    align: 'right',
+  },
+  {
+    value: 50,
+    suffix: '+',
+    label: 'Committees Chaired',
+    size: 'medium',
+    align: 'left',
+  },
+  {
+    value: 100,
+    suffix: '+',
+    label: 'Institutional Collaborations',
+    size: 'medium',
+    align: 'left',
+  },
+];
+function AnimatedNumber({ target, suffix, triggered }: { target: number; suffix: string; triggered: boolean }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!triggered) return;
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [triggered, target]);
+
+  const displayValue = target >= 1000
+    ? count.toLocaleString('en-IN')
+    : count.toString();
+
+  return <>{displayValue}{suffix}</>;
+}
+
+export default function ImpactSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [triggered, setTriggered] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTriggered(true);
+            entry.target.querySelectorAll('.reveal').forEach((el) => {
+              el.classList.add('visible');
+            });
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+  <section
+    ref={sectionRef}
+    id="impact"
+    className="relative overflow-hidden"
+    style={{
+      background:
+        'linear-gradient(90deg, #5b0207 0%, #83090e 50%, #5b0207 100%)',
+      padding: '80px 0',
+    }}
+  >
+    {/* Subtle laurel watermark */}
+    <div
+      style={{
+        position: 'absolute',
+        right: '-120px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        width: '420px',
+        height: '420px',
+        opacity: 0.04,
+        pointerEvents: 'none',
+      }}
+    >
+      <svg viewBox="0 0 400 400" fill="none">
+        <circle
+          cx="200"
+          cy="200"
+          r="150"
+          stroke="#bb8b57"
+          strokeWidth="8"
+        />
+      </svg>
+    </div>
+
+    <div
+      style={{
+        maxWidth: '1440px',
+        margin: '0 auto',
+        padding: '0 48px',
+      }}
+    >
+      {/* Label */}
+      <div
+        className="reveal"
+        style={{
+          marginBottom: '36px',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '12px',
+            fontWeight: 500,
+            letterSpacing: '0.25em',
+            textTransform: 'uppercase',
+            color: '#d8b17a',
+          }}
+        >
+          Our Impact
+        </span>
+      </div>
+
+      {/* Stats Row */}
+      <div
+        className="reveal"
+        style={{
+          display: 'grid',
+          gridTemplateColumns:
+            'repeat(auto-fit, minmax(180px, 1fr))',
+          gap: 0,
+        }}
+      >
+        {[
+          {
+            value: 11000,
+            suffix: '+',
+            label: 'Delegates Trained',
+          },
+          {
+            value: 70,
+            suffix: '+',
+            label: 'National Conferences',
+          },
+          {
+            value: 10,
+            suffix: '+',
+            label: 'International Conferences',
+          },
+          {
+            value: 55,
+            suffix: '+',
+            label: 'Best Delegate Awards',
+          },
+          {
+            value: 50,
+            suffix: '+',
+            label: 'Committees Chaired',
+          },
+          {
+            value: 100,
+            suffix: '+',
+            label: 'Institutional Collaborations',
+          },
+        ].map((stat, index) => (
+          <div
+            key={stat.label}
+            style={{
+              padding: '0 28px',
+              borderRight:
+                index !== 5
+                  ? '1px solid rgba(216,177,122,0.25)'
+                  : 'none',
+            }}
+          >
+            <div
+              style={{
+                fontFamily:
+                  'var(--font-heading), Georgia, serif',
+                fontSize: 'clamp(42px, 4vw, 72px)',
+                lineHeight: 1,
+                color: '#d8b17a',
+                marginBottom: '18px',
+              }}
+            >
+              <AnimatedNumber
+                target={stat.value}
+                suffix={stat.suffix}
+                triggered={triggered}
+              />
+            </div>
+
+            <div
+              style={{
+                fontFamily:
+                  'var(--font-body), system-ui, sans-serif',
+                fontSize: '17px',
+                lineHeight: 1.6,
+                color: '#f8f8f8',
+                opacity: 0.92,
+              }}
+            >
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+}
