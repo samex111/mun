@@ -273,13 +273,14 @@ export default function InstitutionServices() {
           >
             <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
               <img
-                src="/images/hero-2.png"
+                src="/images/founder-2.jpeg"
                 alt="College MUN Association delegates in committee session"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                   display: 'block',
+                  
                   transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                 }}
               />

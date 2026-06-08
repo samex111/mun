@@ -167,7 +167,7 @@ ${scrolled
                     text-white/90
                     uppercase
                     tracking-[0.15em]
-                    text-[13px]
+                    text-[12px]
                     hover:text-white
                     transition
                   "

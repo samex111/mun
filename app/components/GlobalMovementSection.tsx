@@ -16,272 +16,157 @@ export default function GlobalMovementSection() {
     <section
       className="
         relative
-        overflow-hidden
-        bg-[#031833]
-        py-32
-        md:py-40
+        overflow-hidden!
+        bg-[#1A1A1A]!
+        py-8!
+            min-h-[550px]!
+        
       "
     >
-      {/* Noise Texture */}
-
       <div
-        className="
-          absolute
-          inset-0
-          opacity-[0.03]
-          mix-blend-soft-light
-          bg-[url('/images/noise.png')]
-        "
-      />
+  className="
+    absolute!
+    inset-0!
+    opacity-[0.03]!
+    bg-[url('/images/noise.png')]!
+    pointer-events-none!
+  "
+/>
 
-      {/* Background Gold Glow */}
+<div
+  className="
+    absolute
+    right-0!
+    top-0!
+    h-full!
+    w-[50%]!
+    bg-gradient-to-l1
+    from-[#bb8b57]/10!
+    to-transparent!
+  "
+/>
+ <div className="relative! z-10! mx-auto! max-w-7xl! px-6! md:px-8!">
+  <div className="grid! lg:grid-cols-[0.38fr_0.62fr] items-center! gap-16! lg:gap-24!">
 
-      <div
-        className="
-          absolute
-          left-1/2
-          top-[25%]
-          h-[900px]
-          w-[900px]
-          -translate-x-1/2
-          rounded-full
-          bg-[#bb8b57]/10
-          blur-[220px]
-        "
-      />
+    {/* LEFT CONTENT */}
+    <div className="max-w-md">
 
-      <div
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         className="
-          relative
-          z-10
-          mx-auto
-          max-w-7xl
-          px-6
-          md:px-8
+          mb-5!
+          text-xs!
+          uppercase!
+          tracking-[0.35em]!
+          text-[#bb8b57]!
+          font-medium!
         "
       >
-        {/* Label */}
+        A Global Movement
+      </motion.p>
 
-        <motion.p
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-          className="
-            mb-6!
-            text-xs!
-            uppercase
-            tracking-[0.4em]
-            text-[#bb8b57]!
-          "
-        >
-          Global Presence
-        </motion.p>
+      <motion.h5
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="
+          text-white!
+          text-3xl!
+          leading-[1.05]!
+          tracking-[-0.03em]!
+          font-serif!
+          
+        "
+      >
+        Connecting young minds.
+        <br />
+        Inspiring dialogue.
+        <br />
+        Creating global impact.
+      </motion.h5>
 
-        {/* Headline */}
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.15 }}
+        className="
+          mt-10!
+          text-white/65!
+          text-lg!
+          leading-relaxed!
+        "
+      >
+        Our reach extends beyond borders,
+        bringing together future leaders
+        from across continents.
+      </motion.p>
 
-        <motion.h2
-          initial={{
-            opacity: 0,
-            y: 80,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 1.2,
-          }}
-          className="
-            max-w-5xl!
-            text-white!
-            font-heading!
-            text-[clamp(4rem,10vw,9rem)]!
-            leading-[0.9]
-            tracking-[-0.04em]
-          "
-        >
-          A Global
-          <br />
-          Movement.
-        </motion.h2>
+      <motion.button
+        whileHover={{ x: 4 }}
+        className="
+          mt-10!
+          border!
+          border-[#bb8b57]/40!
+          px-7!
+          py-4!
+          text-white!
+          text-sm!
+          tracking-[0.08em]!
+          flex!
+          items-center!
+          gap-4!
+          hoverbg-white/5!
+          transition-all!
+        "
+      >
+        Explore Our Global Reach
+        <span>→</span>
+      </motion.button>
 
-        {/* Supporting Copy */}
-
-        <motion.p
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.2,
-            duration: 1,
-          }}
-          className="
-            mt-10!
-            max-w-2xl!
-            text-lg!
-            leading-relaxed!
-            text-white/70!
-          "
-        >
-          From New Delhi to New York, SMJ MUN is building
-          a new generation of diplomats, negotiators,
-          public speakers, policymakers, and future
-          leaders across the world.
-        </motion.p>
-
-        {/* Network Map */}
-
-        <NetworkMap />
-
-        {/* Glass City Chips */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 1,
-          }}
-          className="
-            mt-12
-            flex
-            flex-wrap
-            gap-4
-          "
-        >
-          {cities.map((city, index) => (
-            <motion.div
-              key={city}
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: index * 0.1,
-              }}
-              whileHover={{
-                y: -3,
-              }}
-              className="
-                rounded-full
-                border!
-                border-white/10!
-                bg-white/5!
-                px-5!
-                py-3!
-                text-xs!
-                uppercase!
-                tracking-[0.25em]
-                text-white/80!
-                backdrop-blur-xl
-              "
-            >
-              {city}
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Divider */}
-
-        <motion.div
-          initial={{
-            width: 0,
-          }}
-          whileInView={{
-            width: 140,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 1.2,
-          }}
-          className="
-            mt-24!
-            h-px!
-            bg-[#bb8b57]!
-          "
-        />
-
-        {/* Editorial Statement */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 50,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className="
-            mt-14!
-            max-w-4xl!
-            border-l!
-            border-[#bb8b57]!
-            pl-8!
-            md:pl-12!
-          "
-        >
-          <p
-            className="
-              text-3xl!
-              md:text-5xl!
-              italic!
-              leading-tight!
-              text-white!
-            "
-          >
-            Connecting young minds.
-            <br />
-            Inspiring meaningful dialogue.
-            <br />
-            Creating global impact.
+      <div className="mt-14! flex! gap-12!">
+        <div>
+          <p className="text-4xl! font-serif! text-[#bb8b57]!">
+            50K+
           </p>
-        </motion.div>
+          <p className="mt-1! text-white/50! text-sm!">
+            Delegates
+          </p>
+        </div>
+
+        <div>
+          <p className="text-4xl! font-serif! text-[#bb8b57]!">
+            20+
+          </p>
+          <p className="mt-1! text-white/50! text-sm!">
+            Countries
+          </p>
+        </div>
       </div>
+    </div>
+
+    {/* RIGHT MAP */}
+    <div className="relative">
+
+      <div
+        className="
+          absolute!
+          inset-0!
+          bg-[#bb8b57]/10!
+          blur-[140px]!
+          rounded-full!
+        "
+      />
+
+      <div className="relative h-[450px]!">
+        <NetworkMap />
+      </div>
+
+    </div>
+  </div>
+</div>
     </section>
   );
 }

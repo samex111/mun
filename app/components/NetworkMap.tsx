@@ -6,29 +6,29 @@ import ConnectionLines from './ConnectionLines';
 
 const cities = [
   {
-    name: 'New Delhi',  
-    x: 705,
-    y: 265,
-  },
-  {
-    name: 'Dubai',
-    x: 625,
-    y: 275,
-  },
-  {
-    name: 'Singapore',
-    x: 760,
-    y: 370,
-  },
-  {
-    name: 'London',
-    x: 500,
-    y: 180,
-  },
-  {
-    name: 'New York',
-    x: 270,
+    name: 'NEW YORK',
+    x: 180,
     y: 220,
+  },
+  {
+    name: 'LONDON',
+    x: 420,
+    y: 150,
+  },
+  {
+    name: 'DUBAI',
+    x: 220,
+    y: 320,
+  },
+  {
+    name: 'NEW DELHI',
+    x: 360,
+    y: 270,
+  },
+  {
+    name: 'SINGAPORE',
+    x: 550,
+    y: 305,
   },
 ];
 
@@ -49,16 +49,13 @@ export default function NetworkMap() {
 
   return (
     <div
-      className="
-        relative!
-        mx-auto!
-        mt-24!
-        h-[450px]!
-        md:h-[650px]!
-        lg:h-[700px]!
-        w-full!
-        max-w-[1400px]!
-      "
+    className="
+relative!
+w-full!
+h-[380px]!
+md:h-[420px]!
+lg:h-[450px]!
+"
     >
       {/* Massive Background Glow */}
 
@@ -91,15 +88,14 @@ export default function NetworkMap() {
           h-[300px]!
           w-[300px]!
           rounded-full!
-          bg-[#bb8b57]/20!
-          blur-[120px]!
+        bg-[#bb8b57]/8!
+blur-[80px]!
         "
       />
 
       {/* Map Layer */}
 
       <motion.div
-        style={{ y: mapY }}
         className="
           absolute!
           inset-0!
@@ -113,11 +109,11 @@ export default function NetworkMap() {
   alt=""
   className="
     absolute
-    inset-0
-    w-full
-    opacity-[0.05]
+    inset-0!
+    w-full!
+  opacity-[0.18]!
   "
-  style={{ y: mapY }}
+
 />
 
 <motion.img
@@ -128,7 +124,8 @@ export default function NetworkMap() {
     inset-0!
     w-full!
     opacity-[0.025]!
-    scale-[1.08]!
+    opacity-[0.08]!
+    z-100!
   "
   style={{ y: glowY }}
 />
@@ -149,8 +146,8 @@ export default function NetworkMap() {
 
       <div
         className="
-          absolute
-          inset-0
+          absolute!
+          inset-0!
         "
       >
         {cities.map((city) => (
@@ -168,8 +165,7 @@ export default function NetworkMap() {
       <motion.div
         className="
           absolute
-          left-[35%]!
-          top-[40%]
+          top-[40%]!
           h-2!
           w-2!
           rounded-full!
@@ -189,13 +185,12 @@ export default function NetworkMap() {
       <motion.div
         className="
           absolute
-          left-[60%]!
           top-[30%]!
           h-2!
           w-2!
-          rounded-full
-          bg-[#bb8b57]
-          shadow-[0_0_25px_rgba(187,139,87,1)]
+          rounded-full!
+          bg-[#bb8b57]!
+          shadow-[0_0_25px_rgba(187,139,87,1)]!
         "
         animate={{
           y: [0, -25, 0],
@@ -210,13 +205,12 @@ export default function NetworkMap() {
       <motion.div
         className="
           absolute
-          left-[75%]!
           top-[55%]!
           h-2!
           w-2!
-          rounded-full
+          rounded-full!
           bg-[#bb8b57]!
-          shadow-[0_0_25px_rgba(187,139,87,1)]
+          shadow-[0_0_25px_rgba(187,139,87,1)]!
         "
         animate={{
           y: [0, -30, 0],

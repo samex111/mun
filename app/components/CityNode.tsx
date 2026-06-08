@@ -15,11 +15,11 @@ export default function CityNode({
 }: CityNodeProps) {
   return (
     <motion.div
-      className="absolute"
+      className="absolute!"
       style={{
         left: x,
         top: y,
-        transform: 'translate(-50%, -50%)',
+        transform: 'translate(-50%, -50%)!',
       }}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -30,14 +30,14 @@ export default function CityNode({
       {/* Outer Pulse */}
       <motion.div
         className="
-          absolute
-          left-1/2
-          top-1/2
-          h-8
-          w-8
-          rounded-full
-          border
-          border-[#bb8b57]/40
+          absolute!
+          left-1/2!
+          top-1/2!
+          h-8!
+          w-8!
+          rounded-full!
+          border!
+          border-[#bb8b57]/40!
         "
         style={{
           transform: 'translate(-50%, -50%)',
@@ -57,13 +57,13 @@ export default function CityNode({
       <div
         className="
           absolute
-          left-1/2
-          top-1/2
-          h-8
-          w-8
-          rounded-full
-          bg-[#bb8b57]/30
-          blur-xl
+          left-1/2!
+          top-1/2!
+          h-8!
+          w-8!
+          rounded-full!
+          bg-[#bb8b57]/30!
+          blur-xl!
         "
         style={{
           transform: 'translate(-50%, -50%)',
@@ -73,11 +73,11 @@ export default function CityNode({
       {/* Core Node */}
       <motion.div
         className="
-          h-3
-          w-3
-          rounded-full
-          bg-[#bb8b57]
-          shadow-[0_0_20px_rgba(187,139,87,0.9)]
+          h-3!
+          w-3!
+          rounded-full!
+          bg-[#bb8b57]!
+          shadow-[0_0_20px_rgba(187,139,87,0.9)]!
         "
         animate={{
           scale: [1, 1.15, 1],
@@ -91,22 +91,22 @@ export default function CityNode({
       {/* Glass Label */}
       <motion.div
         className="
-          absolute
-          left-5
-          top-1/2
-          -translate-y-1/2
-          whitespace-nowrap
-          rounded-full
-          border
-          border-white/10
-          bg-white/5
-          px-4
-          py-2
-          text-[11px]
-          uppercase
-          tracking-[0.2em]
-          text-white/90
-          backdrop-blur-xl
+          absolute!
+          left-5!
+          top-1/21
+          -translate-y-1/2!
+          whitespace-nowrap!
+          rounded-full!
+          border!
+          border-white/10!
+          bg-white/5!
+          px-4!
+          py-2!
+          text-[11px]!
+          uppercase!
+          tracking-[0.2em]!
+          text-white/90!
+          backdrop-blur-xl!
         "
         whileHover={{
           y: -2,

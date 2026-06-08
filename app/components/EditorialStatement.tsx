@@ -4,15 +4,18 @@ export default function EditorialStatement() {
       id="about"
       style={{
         backgroundColor: '#f8f8f8',
-        padding: '120px 0',
+        padding: '40px 0',
       }}
     >
       <div
         style={{
-          maxWidth: '760px',
+          display: 'flex',
+          // maxWidth: '760px',
+          alignItems: 'center',
           margin: '0 auto',
+          gap: '60px',
           textAlign: 'center' as const,
-          padding: '0 8vw',
+          padding: '0 5vw',
         }}
       >
         {/* Gold rule above */}
@@ -24,6 +27,32 @@ export default function EditorialStatement() {
             margin: '0 auto 60px',
           }}
         />
+
+           <div
+          style={{
+            flex: '0 0 45%',
+            maxWidth: '45%',
+            position: 'relative',
+            minHeight: '600px',
+            overflow: 'hidden',
+            
+          }}
+          className="founder-portrait"
+        >
+          <img
+            src="/images/perparestudent.jpeg"
+            alt="Aarush Sahu — Founder of SMJ MUN"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              position: 'absolute',
+              inset: 0,
+              height: '80%',
+            }}
+          />
+        </div>
 
         {/* Editorial quote */}
         <p
@@ -48,7 +77,7 @@ export default function EditorialStatement() {
             width: '80px',
             height: '1px',
             backgroundColor: '#bb8b57',
-            margin: '60px auto 0',
+            margin: '30px auto 0',
           }}
         />
       </div>

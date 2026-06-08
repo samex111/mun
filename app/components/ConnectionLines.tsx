@@ -18,12 +18,12 @@ export default function ConnectionLines({
   const getCity = (name: string) =>
     cities.find((c) => c.name === name);
 
-  const routes = [
-    ['New Delhi', 'London'],
-    ['London', 'New York'],
-    ['Dubai', 'Singapore'],
-    ['New Delhi', 'Singapore'],
-  ];
+const routes = [
+  ['NEW DELHI', 'LONDON'],
+  ['LONDON', 'NEW YORK'],
+  ['DUBAI', 'SINGAPORE'],
+  ['NEW DELHI', 'SINGAPORE'],
+];
 
   const createCurve = (
     start: City,
@@ -60,8 +60,8 @@ export default function ConnectionLines({
 
   return (
     <svg
-      viewBox="0 0 1009 666"
-      className="absolute inset-0 h-full! w-full!"
+      viewBox="0 0 600 450"
+      className="absolute! inset-0! h-full! w-full!"
       preserveAspectRatio="xMidYMid meet"
     >
       <defs>
