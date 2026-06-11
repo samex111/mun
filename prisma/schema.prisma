@@ -72,6 +72,29 @@ model Registration {
   @@index([email])
 }
 
+// ─── Registration Draft ──────────────────────────────────────────────
+
+model RegistrationDraft {
+  id        String   @id @default(cuid())
+
+  email     String
+
+  firstName   String
+  lastName    String
+  phone       String
+  institution String
+
+  city                 String?
+  committeePreference  String?
+  dietaryRequirements  String?
+
+  conferenceId String
+
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
 // ─── OTP Verification ──────────────────────────────────────────────
 
 model OtpVerification {

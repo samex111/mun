@@ -689,8 +689,8 @@ export default async function ConferenceDetailPage({
                 : `Registration for ${conference.title} is currently closed. Check back soon for updates.`}
             </p>
             {conference.registrationOpen ? (
-              <a
-                href="#register"
+              <Link
+                href={`/register/${slug}`}
                 className="btn-primary"
                 style={{
                   padding: "18px 48px",
@@ -703,7 +703,7 @@ export default async function ConferenceDetailPage({
                 }}
               >
                 Register Now →
-              </a>
+              </Link>
             ) : (
               <Link
                 href="/conferences"
