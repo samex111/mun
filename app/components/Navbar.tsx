@@ -242,11 +242,7 @@ ${scrolled
           </div>
         </div>
       </nav>
-<<<<<<< HEAD
-        <MobileMenu
-=======
       <MobileMenu
->>>>>>> e51fa6112f94a1a6ef5fb960ef24d15671e3b6ad
         open={mobileOpen}
         setOpen={setMobileOpen}
         navItems={navItems}
