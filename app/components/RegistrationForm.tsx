@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import type { Conference } from "@/lib/sanity/types";
 import { registrationSchema } from "@/lib/validations/registration";
 import { verifyOtpSchema } from "@/lib/validations/verify-otp";
@@ -63,6 +64,7 @@ const errorStyle: CSSProperties = {
 };
 
 export default function RegistrationForm({ conference }: RegistrationFormProps) {
+  const router = useRouter();
   const [fields, setFields] = useState<FormFields>(INITIAL_FIELDS);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -177,10 +179,15 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
         return;
       }
 
-      setRegistrationId(result.registrationId ?? null);
-      setVerifiedMessage("Registration verified successfully.");
+      const id = result.registrationId ?? null;
+      setRegistrationId(id);
+      setVerifiedMessage("Registration verified successfully. Redirecting to payment...");
       setSuccessMessage(null);
       setOtp("");
+
+      if (id) {
+        router.push(`/payment/${id}`);
+      }
     } catch {
       setOtpError("Unable to verify code. Please try again.");
     } finally {
