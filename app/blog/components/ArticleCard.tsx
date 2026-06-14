@@ -47,7 +47,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
               fill
               unoptimized
               sizes="64px"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover rounded-md  transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
             <div className="w-full h-full bg-navy/20" />
@@ -58,7 +58,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
           <p
             className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-gold mb-1"
           >
-            {category}
+            {category} 
           </p>
           <h4
             className="font-serif text-[14px] font-bold leading-snug text-navy line-clamp-2 group-hover:text-charcoal transition-colors duration-300"
@@ -74,11 +74,11 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
   }
 
   return (
-    <article className="group flex flex-col bg-white border border-navy/8 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1">
+    <article className="group flex flex-col bg-white rounded-md border-navy/8 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1">
       {/* Image */}
       <Link
         href={`/blog/${post.slug.current}`}
-        className="block relative overflow-hidden"
+        className="block relative rounded-md overflow-hidden"
         style={{ aspectRatio: "16 / 10" }}
         tabIndex={-1}
         aria-hidden="true"
