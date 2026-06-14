@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/image"; 
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity/image";
 import type { Blog } from "@/lib/sanity/types";
@@ -25,10 +25,10 @@ export default function FeaturedArticle({ post }: FeaturedArticleProps) {
   return (
     <Link
       href={`/blog/${post.slug.current}`}
-      className="group block no-underline h-full"
+      className="group block border-[0.5px] border-gold rounded-sm p-2 no-underline h-full"
       aria-label={`Featured story: ${post.title}`}
     >
-      <article className="relative h-full min-h-[420px] lg:min-h-[480px] overflow-hidden bg-navy">
+      <article className="relative rounded-sm h-full min-h-[420px] lg:min-h-[480px] overflow-hidden bg-navy">
         {/* Cover Image */}
         {coverUrl && (
           <Image
