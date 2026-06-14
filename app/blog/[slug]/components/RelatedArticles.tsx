@@ -89,12 +89,12 @@ export default function RelatedArticles({
             return (
               <article
                 key={post._id}
-                className="group flex flex-col border border-navy/8 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1 bg-white"
+                className="group flex flex-col   border-navy/8 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1 bg-white"
               >
                 {/* Image */}
                 <Link
                   href={`/blog/${post.slug.current}`}
-                  className="block relative overflow-hidden"
+                  className="block relative overflow-hidden rounded-lg"
                   style={{ aspectRatio: "3 / 2" }}
                   tabIndex={-1}
                   aria-hidden="true"

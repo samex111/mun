@@ -1,3 +1,8 @@
+import {
+  AiFillLinkedin,
+  AiOutlineInstagram,
+  AiOutlineMail,
+} from "react-icons/ai";
 interface AuthorCardProps {
   author: string;
 }
@@ -23,56 +28,151 @@ export default function AuthorCard({ author }: AuthorCardProps) {
   const avatarBg = getAvatarColor(author);
 
   return (
-    <section
-      className="bg-ivory border-t border-navy/8"
-      style={{
-        paddingTop: "clamp(56px, 6vw, 80px)",
-        paddingBottom: "clamp(56px, 6vw, 80px)",
-      }}
+   <section
+  className=""
+  style={{
+    paddingTop: "clamp(56px, 6vw, 80px)",
+    paddingBottom: "clamp(56px, 6vw, 80px)",
+  }}
+>
+  <div className="content-wide ">
+    <div
+      className="
+        max-w-4xl
+        mx-auto
+        bg-white/70
+        backdrop-blur-sm
+        border
+        border-[#e8dfd2]
+        rounded-[20px]
+        p-8
+        lg:p-10
+      "
     >
-      <div className="content-wide">
-        <div className="max-w-[720px]">
-          {/* Section label */}
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-6 h-[1px] bg-gold" />
-            <p className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-navy/40">
-              About the Author
-            </p>
-          </div>
+      <div className="flex  flex-col sm:flex-row gap-6 lg:gap-8 items-start">
+        {/* Avatar */}
+        <div
+          className="
+            w-24
+            h-24
+            rounded-full
+            flex
+            items-center
+            justify-center
+            flex-shrink-0
+            overflow-hidden
+            border
+            border-[#d9cbb7]
+          "
+          style={{
+            backgroundColor: avatarBg,
+          }}
+        >
+          <span className="font-serif text-[28px] font-bold text-white">
+            {initials}
+          </span>
+        </div>
 
-          {/* Card */}
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            {/* Avatar */}
-            <div
-              className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: avatarBg }}
-              aria-hidden="true"
+        {/* Content */}
+        <div className="flex-1">
+          <h2
+            className="
+              font-serif
+              text-[28px]
+              lg:text-[34px]
+              text-navy
+              leading-tight
+              mb-3
+            "
+          >
+            {author}
+          </h2>
+
+          <p
+            className="
+              font-sans
+              text-[15px]
+              leading-[1.9]
+              text-navy/65
+              max-w-2xl
+              mb-6
+            "
+          >
+            A contributor to the SMJ MUN Journal with a strong interest in
+            international relations, diplomacy, leadership, and global affairs.
+            Through thoughtful analysis and commentary, they explore the ideas
+            shaping the next generation of global citizens.
+          </p>
+
+          {/* Socials */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#"
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-[#d9cbb7]
+                flex
+                items-center
+                justify-center
+                text-gold
+                hover:bg-gold
+                hover:text-white
+                transition-all
+                duration-300
+              "
             >
-              <span className="font-serif text-[20px] font-bold text-white/80">
-                {initials}
-              </span>
-            </div>
+              <AiFillLinkedin size={16} />
+            </a>
 
-            {/* Text */}
-            <div className="flex-1">
-              <h2
-                className="font-serif text-[22px] font-bold text-navy leading-tight mb-1"
-              >
-                {author}
-              </h2>
-              <p className="font-sans text-[11px] font-500 tracking-[0.14em] uppercase text-gold mb-3">
-                SMJ MUN Contributor
-              </p>
-              <p className="font-sans text-[14px] leading-[1.75] text-navy/55">
-                A student leader and writer passionate about international
-                relations, youth empowerment, and global diplomacy. Contributing
-                to the SMJ MUN Journal to amplify voices from the conference
-                floor.
-              </p>
-            </div>
+            <a
+              href="#"
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-[#d9cbb7]
+                flex
+                items-center
+                justify-center
+                text-gold
+                hover:bg-gold
+                hover:text-white
+                transition-all
+                duration-300
+              "
+            >
+              <AiOutlineInstagram size={16} />
+            </a>
+
+            <a
+              href="#"
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-[#d9cbb7]
+                flex
+                items-center
+                justify-center
+                text-gold
+                hover:bg-gold
+                hover:text-white
+                transition-all
+                duration-300
+              "
+            >
+              <AiOutlineMail size={16} />
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }
