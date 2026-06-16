@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-const heroImages = ['/images/hero-1.png', '/images/founder-2.jpeg', '/images/hero-3.png'];
+const heroImages = ['/images/smj-hero-6.jpeg', '/images/smj-hero-5.jpeg', '/images/smg-hero-2.jpeg', '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
 
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -21,7 +21,7 @@ export default function HeroSection() {
       style={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
+        height: '90vh',
         minHeight: '700px',
         overflow: 'hidden',
         backgroundColor: '#042147',
@@ -36,7 +36,7 @@ export default function HeroSection() {
             inset: 0,
             backgroundImage: `url(${src})`,
             backgroundSize: 'cover',
-            backgroundPosition: '80% center;',
+            backgroundPosition: 'center;',
             opacity: index === currentImage ? 1 : 0,
             transition: 'opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
             transform: index === currentImage ? 'scale(1.02)' : 'scale(1)',
@@ -88,7 +88,7 @@ export default function HeroSection() {
         }}
       >
         {/* Label */}
-        <div
+        {/* <div
           style={{
             fontFamily: 'var(--font-body), system-ui, sans-serif',
             fontSize: '12px',
@@ -102,10 +102,10 @@ export default function HeroSection() {
           }}
         >
           TAS Presents
-        </div>
+        </div> */}
 
         {/* Main Heading */}
-        <h1
+        {/* <h1
           style={{
             fontFamily: 'var(--font-heading), Georgia, serif',
             fontSize: 'clamp(56px, 9vw, 120px)',
@@ -118,13 +118,14 @@ export default function HeroSection() {
             animation: 'fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards',
           }}
         >
-          SMJ MUN
-        </h1>
+          SMJMUN
+        </h1> */}
 
         {/* Tagline */}
         <p
           style={{
-            fontFamily: 'var(--font-body), system-ui, sans-serif',
+                        fontFamily: 'var(--font-heading), Georgia, serif',
+
             fontSize: 'clamp(16px, 1.5vw, 20px)',
             lineHeight: 1.6,
             color: 'rgba(255, 255, 255, 0.75)',
@@ -135,9 +136,10 @@ export default function HeroSection() {
           }}
           className='text-3xl!'
         >
-          India&apos;s Premier Platform  <br />For
+          MUN Teaches You How To Speak.
+      <br />SMJMUN
 
-          <span className='text-gold! text-3xl'> Diplomacy, Leadership &amp; Global Engagement.</span>
+          <span className='text-gold! text-3xl'>  Exists To Give You Something Worth Saying</span>
         </p>
 
         {/* CTAs — one solid, one text link */}
