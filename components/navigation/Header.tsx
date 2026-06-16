@@ -37,15 +37,15 @@ export function Header() {
           <a
             href="/register"
             className={cn(
-              "hidden md:inline-flex items-center justify-center py-3 px-6 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
+              "hidden md:inline-flex rounded-md items-center justify-center py-3 px-6 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
               isScrolled 
-                ? "bg-primary text-white hover:bg-accent hover:-translate-y-0.5 shadow-sm" 
-                : "bg-white text-primary border border-transparent hover:border-primary/20 hover:-translate-y-0.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.05)]"
+                ? "bg-primary text-white hover:text-black hover:bg-white hover:-translate-y-0.5 shadow-sm" 
+                : "bg-white text-primary border border-transparent rounded-md hover:-translate-y-0.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.05)]"
             )}
           >
             Register Now
           </a>
-          
+           
           <MobileNav />
         </div>
         

@@ -11,7 +11,9 @@ export function ConferencesMenu() {
   const { featured } = CONFERENCES_DATA;
 
   return (
-    <div className="w-[800px] p-8 grid grid-cols-12 gap-8 bg-surface-white rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-primary/5">
+    <div
+     className="w-[800px] p-8 grid grid-cols-12 gap-8 bg-surface-white rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-primary/5"
+     >
       
       {/* Featured Conference Card (Takes up 7 columns) */}
       <div className="col-span-7 flex flex-col group cursor-pointer relative overflow-hidden rounded-lg bg-surface border border-primary/5 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const heroImages = ['/images/smj-hero-6.jpeg', '/images/smj-hero-5.jpeg', '/images/smg-hero-2.jpeg', '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
 
@@ -141,54 +142,115 @@ export default function HeroSection() {
 
           <span className='text-gold! text-3xl'>  Exists To Give You Something Worth Saying</span>
         </p>
+<div
+  style={{
+    width: "340px",
+    height: "2px",
+    background: "#bb8b57",
+    marginBottom: "28px",
+  }}
+/>
+     <div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "24px",
+    flexWrap: "wrap",
+    opacity: 0,
+    animation:
+      "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
+  }}
+>
+  <a
+    href="#contact"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "10px",
 
-        {/* CTAs — one solid, one text link */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '32px',
-            flexWrap: 'wrap' as const,
-            opacity: 0,
-            animation: 'fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards',
-          }}
-        >
+      padding: "14px 34px",
 
-          <a
-            href="#contact"
-            className="btn-primary  "
-            style={{
-              padding: '18px 44px',
-              fontSize: '13px',
+      border: "1px solid rgba(255,255,255,0.75)",
+      borderRadius: "999px",
 
-            }}
-            onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'black'; }}
-            onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#83090e'; }}
+      color: "#ffffff",
+      textDecoration: "none",
 
-          >
-            Partner With Us
-          </a>
-          <a
-            href="#leadership"
-            style={{
-              fontFamily: 'var(--font-body), system-ui, sans-serif',
-              fontSize: '14px',
-              fontWeight: 500,
-              letterSpacing: '0.08em',
-              color: 'rgba(255, 255, 255, 0.7)',
-              textDecoration: 'none',
-              transition: 'color 0.3s ease',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-            onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#ffffff'; }}
-            onMouseLeave={(e) => { (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.7)'; }}
-          >
-            Explore Programs →
-          </a>
-        </div>
-      </div>
+      fontFamily: "var(--font-body)",
+      fontSize: "15px",
+      fontWeight: 500,
+
+      backdropFilter: "blur(6px)",
+
+      transition: "all 0.4s ease",
+    }}
+    onMouseEnter={(e) => {
+      const target = e.currentTarget;
+
+      target.style.background =
+        "rgba(255,255,255,0.12)";
+      target.style.transform =
+        "translateY(-2px)";
+    }}
+    onMouseLeave={(e) => {
+      const target = e.currentTarget;
+
+      target.style.background =
+        "transparent";
+      target.style.transform =
+        "translateY(0px)";
+    }}
+  >
+    about us
+    <span> <ArrowRight />
+  </span>
+  </a>
+
+  <a
+    href="#leadership"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "10px",
+
+      padding: "14px 34px",
+
+      border: "1px solid rgba(255,255,255,0.75)",
+      borderRadius: "999px",
+
+      color: "#ffffff",
+      textDecoration: "none",
+
+      fontFamily: "var(--font-body)",
+      fontSize: "15px",
+      fontWeight: 500,
+
+      backdropFilter: "blur(6px)",
+
+      transition: "all 0.4s ease",
+    }}
+    onMouseEnter={(e) => {
+      const target = e.currentTarget;
+
+      target.style.background =
+        "rgba(255,255,255,0.12)";
+      target.style.transform =
+        "translateY(-2px)";
+    }}
+    onMouseLeave={(e) => {
+      const target = e.currentTarget;
+
+      target.style.background =
+        "transparent";
+      target.style.transform =
+        "translateY(0px)";
+    }}
+  >
+    Explore Programs
+    <span> <ArrowRight /></span>
+  </a>
+</div>
+</div>
 
       {/* Subtle gold thin line at the very bottom */}
       <div
