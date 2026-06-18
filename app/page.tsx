@@ -1,6 +1,7 @@
 import HeroSection from "./components/HeroSection";
 import TrustSection from "./components/TrustSection";
 import AboutWordmark from "./components/AboutWordmark";
+import OurProgramsSection from "./components/OurProgramsSection";
 import ImpactSection from "./components/ImpactSection";
 import EditorialStatement from "./components/EditorialStatement";
 import FounderSection from "./components/FounderSection";
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <TrustSection />
+        <OurProgramsSection />
         <AboutWordmark />
         <ImpactSection />
         <EditorialStatement />
