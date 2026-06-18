@@ -1,5 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import TrustSection from "./components/TrustSection";
+import AboutWordmark from "./components/AboutWordmark";
 import ImpactSection from "./components/ImpactSection";
 import EditorialStatement from "./components/EditorialStatement";
 import FounderSection from "./components/FounderSection";
@@ -11,9 +12,6 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import MediaSection from "./components/MediaSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
-import Test from "./components/Test";
-import AboutWordmarkSection from "./components/files (1)/AboutWordmarkSection";
-import SMJMask from "./components/files (1)/SMJMask";
 
 export default function Home() {
   return (
@@ -21,10 +19,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <TrustSection />
-                  <SMJMask />
-        
-              <AboutWordmarkSection />
-        
+        <AboutWordmark />
         <ImpactSection />
         <EditorialStatement />
         <FounderSection />

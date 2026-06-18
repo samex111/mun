@@ -1,83 +1,119 @@
 'use client';
 
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { CONFERENCES_DATA } from '../constants/navigation';
-import { 
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger 
-} from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Calendar, MapPin } from 'lucide-react';
+import { ChevronDown, MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface MobileConferencesAccordionProps {
   onLinkClick: () => void;
 }
 
 export function MobileConferencesAccordion({ onLinkClick }: MobileConferencesAccordionProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const { featured } = CONFERENCES_DATA;
 
   return (
-    <Accordion className="w-full">
-      <AccordionItem value="conferences" className="border-b border-primary/10">
-        <AccordionTrigger 
+    <div className="border-b border-white/[0.06]">
+
+      {/* Trigger */}
+      <button
+        onClick={() => setIsOpen((v) => !v)}
+        className={cn(
+          'w-full flex items-center justify-between py-5',
+          'font-heading text-[22px] font-normal tracking-tight transition-colors duration-200',
+          isOpen ? 'text-[#bb8b57]' : 'text-white/80 hover:text-white'
+        )}
+      >
+        <span>Conferences</span>
+        <ChevronDown
           className={cn(
-            "font-heading text-2xl font-bold text-primary py-5 hover:no-underline hover:text-accent transition-colors",
-            "data-[state=open]:text-accent"
+            'w-4 h-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+            isOpen ? 'rotate-180 text-[#bb8b57]' : 'text-white/30'
           )}
-        >
-          Conferences
-        </AccordionTrigger>
-        <AccordionContent className="pt-2 pb-6">
-          <div className="flex flex-col gap-6 pl-4 border-l-2 border-highlight/30 ml-2">
-            
-            {/* Featured Conference */}
-            <div className="flex flex-col group">
-              <span className="font-body text-[10px] font-semibold tracking-widest uppercase text-highlight mb-2">
-                Featured Summit
-              </span>
-              <Link 
-                href={featured.href} 
-                onClick={onLinkClick}
-                className="font-heading text-lg font-bold text-primary leading-tight mb-2 group-hover:text-accent transition-colors"
-              >
-                {featured.title}
-              </Link>
-              <div className="flex flex-col gap-1.5 mb-3 text-primary/70">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-3.5 h-3.5 mt-0.5 text-highlight/70" />
-                  <span className="font-body text-[13px] leading-snug">{featured.venue}</span>
+          strokeWidth={1.5}
+        />
+      </button>
+
+      {/* Expanded content */}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="pb-7 flex flex-col gap-5">
+
+              {/* Overline */}
+              <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57]">
+                Featured Conference
+              </p>
+
+              {/* Featured conference */}
+              <div className="border-l border-white/10 pl-4 flex flex-col gap-3">
+                <Link
+                  href={featured.href}
+                  onClick={onLinkClick}
+                  className="font-heading text-[18px] font-normal text-white leading-snug hover:text-[#bb8b57] transition-colors duration-200"
+                >
+                  {featured.title}
+                </Link>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-start gap-2 text-white/40">
+                    <MapPin className="w-3 h-3 mt-0.5 shrink-0 text-[#bb8b57]" />
+                    <span className="font-body text-[12px] leading-relaxed">{featured.venue}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white/40">
+                    <Calendar className="w-3 h-3 shrink-0 text-[#bb8b57]" />
+                    <span className="font-body text-[12px]">{featured.date}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-3.5 h-3.5 text-highlight/70" />
-                  <span className="font-body text-[13px]">{featured.date}</span>
-                </div>
+                <Link
+                  href={featured.href}
+                  onClick={onLinkClick}
+                  className="inline-flex items-center gap-1.5 text-[#bb8b57] text-[11px] uppercase tracking-[0.12em] hover:gap-2.5 transition-all duration-200"
+                >
+                  View Conference <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
-              <Link 
-                href={featured.href}
-                onClick={onLinkClick}
-                className="flex items-center gap-1.5 text-[13px] font-medium text-accent hover:text-accent/80 transition-colors"
-              >
-                View Conference Details <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
 
-            {/* Sub Links */}
-            <div className="flex flex-col gap-4 pt-4 border-t border-primary/5">
-              <Link 
-                href="/conferences" 
-                onClick={onLinkClick}
-                className="font-body text-[15px] font-medium text-primary/80 hover:text-accent transition-colors flex items-center justify-between"
-              >
-                Conference Archive
-                <ArrowRight className="w-4 h-4 text-primary/30" />
-              </Link>
-            </div>
+              {/* Divider */}
+              <div className="h-px bg-white/[0.06]" />
 
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+              {/* Sub-links */}
+              <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57]">
+                Conference Types
+              </p>
+              <div className="flex flex-col gap-3.5">
+                {[
+                  'International Conferences',
+                  'National Conferences',
+                  'School Conferences',
+                  'College Conferences',
+                  'Delegate Training',
+                  'Executive Board Program',
+                ].map((label) => (
+                  <Link
+                    key={label}
+                    href="/conferences"
+                    onClick={onLinkClick}
+                    className="font-body text-[15px] text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+    </div>
   );
 }
