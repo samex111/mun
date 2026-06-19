@@ -14,6 +14,7 @@ import MediaSection from "./components/MediaSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import MosaicHero from "./components/smjmun-mosaic/MosaicHero";
+import MomentsCollage from "./components/MomentCollage";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
 
         <OurProgramsSection />
         {/* <MosaicHero /> */}
+        <MomentsCollage/>
         <EditorialStatement />
         <GlobalMovementSection />
 

@@ -15,11 +15,11 @@ export default function Footer() {
   ];
 
   return (
-<footer className="bg-[#18171C] text-white">
+<footer className="bg-[#0A0A0A]  ! text-white">
   {/* Top Border */}
-  <div className="h-px bg-[var(--color-gold)]" />
+  <div className="h-px  bg-[var(--color-gold)]" />
 
-  <div className="max-w-7xl mx-auto px-8 py-20">
+  <div className="max-w-7xl  mx-auto px-8 pt-20">
     <div className="grid lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr] gap-12">
     
 
@@ -109,6 +109,21 @@ export default function Footer() {
         © 2026 SMJMUN. All Rights Reserved.
       </p>
     </div>
+      <div className="relative h-16 sm:h-22 md:h-28 lg:h-36 overflow-hidden">
+          {/* Large text - positioned to show top portion, cut off at bottom */}
+          <h2
+            className="absolute left-1/2 -translate-x-1/2 top-0 text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[10rem] xl:text-[13rem] font-display font-bold tracking-tighter leading-[0.85] select-none whitespace-nowrap"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.015) 70%, transparent 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            SMJMUN
+          </h2>
+        </div>
   </div>
 </footer>  );
 }
