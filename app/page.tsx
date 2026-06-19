@@ -22,16 +22,18 @@ export default function Home() {
         <HeroSection />
         <AboutWordmark />
         <TrustSection />
+        <ImpactSection />
+
         <OurProgramsSection />
         {/* <MosaicHero /> */}
-        <ImpactSection />
         <EditorialStatement />
-        <FounderSection />
         <GlobalMovementSection />
-        <InstitutionServices />
-        <LeadershipJourney />
-        <ConferencesSection />
-        <TestimonialsSection />
+
+        <FounderSection />
+        {/* <InstitutionServices /> */}
+        {/* <LeadershipJourney /> */}
+        {/* <ConferencesSection /> */}
+        {/* <TestimonialsSection /> */}
         {/* <MediaSection /> */}
         <CTASection />
       </main>

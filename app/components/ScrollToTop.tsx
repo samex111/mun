@@ -32,9 +32,10 @@ export default function ScrollToTop() {
         fixed bottom-8 right-8
 h-14 w-14
 rounded-full
-bg-navy
+bg-white
 border border-gold/30
 text-gold
+z-10000
 shadow-xl
 hover:-translate-y-1
 transition-all

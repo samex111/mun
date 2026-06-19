@@ -12,9 +12,9 @@ const SMJ_IMAGES = [
 ];
 
 // ─── MUN: institutional, formal, legacy ─────────────────────────────────────
-const MUN_IMAGE = '/images/treecolour.png';
+const MUN_IMAGE = '/images/treecolour-4.png';
 
-const INTERVAL_MS = 3000;
+const INTERVAL_MS = 1000;
 const FADE_MS = 800;
 
 // ─── SMJLetters: stacks all images, crossfades between them ─────────────────
