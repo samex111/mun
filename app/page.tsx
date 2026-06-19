@@ -30,7 +30,7 @@ export default function Home() {
         <LeadershipJourney />
         <ConferencesSection />
         <TestimonialsSection />
-        <MediaSection />
+        {/* <MediaSection /> */}
         <CTASection />
       </main>
       <Footer />

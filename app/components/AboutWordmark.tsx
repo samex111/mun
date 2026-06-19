@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 // ─── SMJ: people, delegates, community ──────────────────────────────────────
 const SMJ_IMAGES = [
-  '/images/SHCOOL-PHOTO-1.png',
+  
   '/images/SHCOOL-PHOTO.png',
   '/images/hero-1.png',
   '/images/hero-2.png',
