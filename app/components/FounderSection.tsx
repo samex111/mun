@@ -42,6 +42,7 @@ export default function FounderSection() {
               position: 'absolute',
               inset: 0,
             }}
+            className="border border-white/10 border-radius-lg"   
           />
         </div>
 
