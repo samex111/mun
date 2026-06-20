@@ -5,6 +5,7 @@ import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
 import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
+import SmoothScroll from "./components/SmoothScroll";
 
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -61,6 +62,7 @@ export default function RootLayout({
      
         <div className="flex-1">
           {/* {children} */}
+             <SmoothScroll />
           <ScrollToTop />
           <LayoutWrapper>{children}</LayoutWrapper>
         </div>

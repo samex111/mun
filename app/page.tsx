@@ -15,16 +15,17 @@ import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import MosaicHero from "./components/smjmun-mosaic/MosaicHero";
 import MomentsCollage from "./components/MomentCollage";
+import AboutHero from "./components/AboutSection";
 
 export default function Home() {
   return (
     <>
       <main>
         <HeroSection />
-        <AboutWordmark />
         <TrustSection />
         <ImpactSection />
-
+        <AboutHero />
+        
         <OurProgramsSection />
         {/* <MosaicHero /> */}
         <MomentsCollage/>
