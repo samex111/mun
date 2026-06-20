@@ -21,10 +21,10 @@ export default function Home() {
     <>
       <main>
         <HeroSection />
+        <AboutHero />
         <AboutWordmark />
         <TrustSection />
         <ImpactSection />
-        <AboutHero />
         
         <OurProgramsSection />
         <MomentsCollage/>
