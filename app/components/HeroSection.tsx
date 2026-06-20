@@ -132,16 +132,16 @@ export default function HeroSection() {
             lineHeight: 1.6,
             color: 'rgba(255, 255, 255, 0.75)',
             maxWidth: '480px',
-            marginBottom: '48px',
+            marginBottom: '24px',
             opacity: 0,
             animation: 'fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.7s forwards',
           }}
-          className='text-3xl!'
+          className='text-4xl! md:text-5xl lg:text-6xl! font-bold! text-white/80! leading-[1.1]! max-w-3xl!'
         >
-          MUN Teaches You How To Speak.
-      <br />SMJMUN 
+          Dare 
+         <span className='text-charcoal!'> Rise</span> 
 
-          <span className='text-gold! text-3xl'>  Exists To Give   You Something Worth Saying</span>
+          <span className='text-gold!'> Impact</span>
         </p>
 <div
   style={{
@@ -150,6 +150,7 @@ export default function HeroSection() {
     background: "#bb8b57",
     marginBottom: "28px",
   }}
+  className="md:w-[400px]! lg:w-[480px]!"
 />
      <div
   style={{
