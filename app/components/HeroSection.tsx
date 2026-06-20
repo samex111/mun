@@ -42,6 +42,7 @@ export default function HeroSection() {
             transition: 'opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
             transform: index === currentImage ? 'scale(1.02)' : 'scale(1)',
           }}
+          className=" bg-cover  bg-center  "
         />
       ))}
 
