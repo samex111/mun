@@ -43,7 +43,7 @@ export default function MomentsCollage() {
                         <h2 className="text-3xl md:text-4xl text-gold  font-semibold max-w-2xl mx-auto mb-12 px-6">
                 Some experiences end when the event does.
                 The ones that shape you stay forever. <br />
-               <Link href="/gallery"> <button className="bg-charcoal text-black px-6 py-3 mt-2 rounded-md text-lg font-bold hover:bg-white transition-colors">
+               <Link href="/gallery"> <button className="bg-charcoal text-black px-6 py-3 my-4 md:mb-2 rounded-md text-lg font-bold hover:bg-white transition-colors">
                 View Gallery
             </button></Link>
             </h2>
