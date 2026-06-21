@@ -6,6 +6,7 @@
   import { Logo } from './Logo';
   import { DesktopNav } from './DesktopNav';
   import { MobileNav } from './MobileNav';
+import Link from 'next/link';
 
   export function Header() {
     const isScrolled = useScrolledHeader(60);
@@ -34,8 +35,8 @@
           {/* Right: Actions / Mobile Toggle */}
           <div className="flex-shrink-0 flex items-center justify-end min-w-[120px]">
             {/* CTA is hidden on mobile, available in drawer */}
-            <a
-              href="/register"
+            <Link
+              href="/conference"
               className={cn(
                 "hidden md:inline-flex rounded-md items-center justify-center py-3 px-6 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
                 isScrolled 
@@ -44,7 +45,7 @@
               )}
             >
               Register Now
-            </a>
+            </Link>
             
             <MobileNav />
           </div>
