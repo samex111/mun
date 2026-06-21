@@ -83,7 +83,7 @@ export default function AboutWordmark() {
       <div className="w-full h-px" style={{ backgroundColor: '#1a1a1815' }} />
 
       {/* ── Wordmark ────────────────────────────────────────────────────── */}
-      <div className="flex flex-col items-center px-4 pt-20 pb-8 md:pt-28 md:pb-10">
+      <div className="flex flex-col items-center px-4 pt-20 pb-15 md:pt-28 md:pb-10">
 
         {/* Overline */}
      
