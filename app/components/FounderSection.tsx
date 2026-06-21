@@ -158,7 +158,7 @@ export default function FounderSection() {
           <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
             {/* LinkedIn */}
             <a
-              href="#"
+              href="https://www.linkedin.com/in/theaarushsahu"
               aria-label="LinkedIn"
               style={{
                 color: '#042147',
@@ -176,7 +176,7 @@ export default function FounderSection() {
             </a>
             {/* Instagram */}
             <a
-              href="#"
+              href="https://www.instagram.com/theaarushhsahu?igsh=MXR6amRrYndvNnNvOA=="
               aria-label="Instagram"
               style={{
                 color: '#042147',
@@ -194,7 +194,7 @@ export default function FounderSection() {
             </a>
             {/* Email */}
             <a
-              href="mailto:contact@smjmun.org"
+              href="Info@smjmun.com"
               aria-label="Email"
               style={{
                 color: '#042147',
