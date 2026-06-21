@@ -151,7 +151,7 @@ export default function Footer() {
 
     {/* Conference */}
     <div>
-      <h4 className="text-sm uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
+      <h4 className="text-sm uppercase tracking-[0.18em] text-gold mb-6">
         Conference
       </h4>
 
@@ -173,7 +173,7 @@ export default function Footer() {
 
     {/* Delegates */}
     <div>
-      <h4 className="text-sm uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
+      <h4 className="text-sm uppercase tracking-[0.18em] text-gold mb-6">
         Delegates
       </h4>
 
@@ -198,7 +198,7 @@ export default function Footer() {
 
     {/* Organization */}
     <div>
-      <h4 className="text-sm uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
+      <h4 className="text-sm uppercase tracking-[0.18em] text-gold mb-6">
         Organization
       </h4>
 

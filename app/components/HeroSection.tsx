@@ -4,18 +4,26 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-const heroImages = ['/images/smj-hero-6.jpeg', '/images/smj-hero-5.jpeg', '/images/smg-hero-2.jpeg', '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
+const heroImages = ['/images/smj-hero-6.jpeg',   '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
 
 export default function HeroSection() {
-  const [currentImage, setCurrentImage] = useState(0);
+const [currentImage, setCurrentImage] = useState(0);
+ 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+const SLIDE_DURATION = 4000;
+ useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentImage(
+      (prev) => (prev + 1) % heroImages.length
+    );
+  }, SLIDE_DURATION);
 
+  return () => clearInterval(timer);
+
+  
+}, []);
+console.log("currentImage:", currentImage);
+console.log("length:", heroImages.length);
   return (
     <section
       id="hero"
@@ -45,6 +53,7 @@ export default function HeroSection() {
           className=" bg-cover  bg-center  "
         />
       ))}
+      
 
       {/* Dark Gradient Overlay — left-to-right for editorial feel */}
       <div
@@ -255,18 +264,61 @@ export default function HeroSection() {
 </div>
 
       {/* Subtle gold thin line at the very bottom */}
+<div
+  className="
+    absolute
+    bottom-30
+    right-6
+    md:right-12
+    lg:right-20
+    z-20
+    flex
+    flex-col
+    items-end
+    gap-4
+  "
+>
+  {/* Progress Segments */}
+  <div className="flex items-center gap-4">
+    {heroImages.map((_, index) => (
       <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: '8vw',
-          width: '80px',
-          height: '1px',
-          backgroundColor: '#bb8b57',
-          zIndex: 3,
-          opacity: 0.5,
-        }}
-      />
+        key={index}
+        className="
+          relative
+          h-[2px]
+         w-16 md:w-24 lg:w-32
+          overflow-hidden
+          bg-white/30
+        "
+      >
+       {index === currentImage && (
+  <div
+    key={currentImage}
+    className="absolute left-0 top-0 h-full bg-[#bb8b57]"
+    style={{
+      width: "100%",
+      animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
+    }}
+  />
+)}
+
+        {index < currentImage && (
+          <div className="absolute inset-0 bg-[#bb8b57]" />
+        )}
+      </div>
+    ))}
+  </div>
+
+  {/* Counter */}
+  <div className="text-xs md:text-sm tracking-[0.25em] text-white/90">
+    {String(currentImage + 1).padStart(2, "0")} /{" "}
+    {String(heroImages.length).padStart(2, "0")}
+    <div className="text-white">
+  {/* {Math.round(progress)}% */}
+</div>
+  </div>
+</div>
+
     </section>
   );
 }
