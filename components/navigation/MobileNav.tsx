@@ -17,7 +17,7 @@ export function MobileNav() {
             className="p-2 -mr-2 text-white/70 hover:text-white focus:outline-none transition-colors duration-200"
             aria-label="Open navigation menu"
           >
-          <MenuTwoLineIcon color="white" size={24} />
+          <MenuTwoLineIcon color="white" size={36} />
           </button>
         </SheetTrigger>
         <SheetContent
