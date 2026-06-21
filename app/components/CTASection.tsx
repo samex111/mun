@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 
 export default function CTASection() {
 return (
@@ -164,33 +165,30 @@ return (
                 "
               />
 
-              <button
-             className="
-h-12
-rounded-md
-px-7
-font-medium
-uppercase
-tracking-[0.15em]
-text-black
-transition-all
-duration-300
-
-bg-gradient-to-r
-from-[#d8b17a]
-to-[#bb8b57]
-
- 
-hover:bg-none
-hover:bg-charcoal
-hover:text-white
-hover:duration-75
-"
-                
-              >
-                Start The Conversation
-              </button>
-            </div>
+<button
+  type="submit"
+  className="
+    group
+    mt-6
+    flex
+    h-14
+    w-14
+    items-center
+    justify-center
+    rounded-full
+    bg-[#bb8b57]
+    text-white
+    transition-all
+    duration-300
+    hover:scale-110
+    hover:shadow-[0_0_30px_rgba(187,139,87,0.4)]
+  "
+>
+  <Send
+    size={22}
+    className="transition-transform group-hover:translate-x-1"
+  />
+</button>            </div>
           </motion.div>
         </motion.div>
 
