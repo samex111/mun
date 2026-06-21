@@ -15,12 +15,12 @@ export default function Footer() {
   ];
 
   return (
-<footer className="bg-[#0A0A0A]  ! text-white">
+<footer className="bg-[#0A0A0A]  ! text-white overflow-hidden">
   {/* Top Border */}
   <div className="h-px  bg-[var(--color-gold)]" />
 
   <div className="max-w-7xl  mx-auto px-8 pt-20">
-    <div className="grid lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr] gap-12">
+    <div className="grid grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr] gap-12">
     
 
       {/* Conference */}
@@ -105,7 +105,7 @@ export default function Footer() {
 
     {/* Bottom */}
     <div className="mt-16 pt-8  border-white/10 flex flex-col lg:flex-row justify-center gap-4">
-      <p className="text-white/50 text-sm">
+      <p className="text-white/50 text-center text-sm">
         © 2026 SMJMUN. All Rights Reserved.
       </p>
     </div>
