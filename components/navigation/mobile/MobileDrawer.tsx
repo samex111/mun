@@ -35,7 +35,7 @@ export function MobileDrawer({ onClose }: MobileDrawerProps) {
       </div>
 
       {/* Navigation Links */}
-      <ScrollArea className="flex-1">
+      <ScrollArea className="flex-1 h-full">
         <nav className="flex flex-col px-6 py-4">
           {MAIN_NAVIGATION.map((item) => {
             if (item.label === 'Conferences') {
