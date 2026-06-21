@@ -30,7 +30,7 @@ console.log("length:", heroImages.length);
       style={{
         position: 'relative',
         width: '100%',
-        height: '90vh',
+        height: '100vh',
         minHeight: '700px',
         overflow: 'hidden',
         backgroundColor: '#042147',
@@ -267,7 +267,8 @@ console.log("length:", heroImages.length);
 <div
   className="
     absolute
-    bottom-30
+    md:bottom-30
+    bottom-12
     right-6
     md:right-12
     lg:right-20
