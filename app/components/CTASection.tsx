@@ -107,7 +107,7 @@ return (
               rounded-[28px]
               border
               border-white/10
-              bg-black/[0.9]
+              bg-[#0A0A0A]
               backdrop-blur-xl
               p-6
             "

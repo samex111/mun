@@ -126,7 +126,7 @@ export default function OurProgramsSection() {
           border-radius: 50px;
           border: 1.5px solid rgba(255,255,255,0.50);
           color: #fff;
-          font-family: system-ui, sans-serif;
+          font-family: inter, inter ,system-ui, sans-serif;
           font-size: 14px;
           letter-spacing: 0.04em;
           text-decoration: none;
@@ -191,7 +191,7 @@ border-right: 1px solid rgba(255,255,255,0.8);
 
         /* ─── Tab label ──────────────────────────────────── */
         .prog-tab-label {
-          font-family: system-ui, sans-serif;
+          font-family: inter, system-ui, sans-serif;
           font-size: clamp(12px, 1.1vw, 30px);
           letter-spacing: 0.16em;
           text-transform: uppercase;
@@ -403,7 +403,7 @@ border-right: 1px solid rgba(255,255,255,0.8);
                     <p
                       key={idx}
                       style={{
-                        fontFamily: 'system-ui, sans-serif',
+                        fontFamily: 'inter ,system-ui, sans-serif',
                         fontSize: 'clamp(14px, 1.15vw, 16px)',
                         lineHeight: 1.75,
                         color: 'rgba(255,255,255,0.88)',

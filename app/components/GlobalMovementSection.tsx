@@ -17,7 +17,7 @@ export default function GlobalMovementSection() {
       className="
         relative
         overflow-hidden!
-        bg-[#1A1A1A]!
+        bg-[#0A0A0A]!
         pt-8!
           min-h-[450px]  md:min-h-[550px]!
         

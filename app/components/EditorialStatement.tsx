@@ -2,7 +2,7 @@ export default function EditorialStatement() {
   return (<section
   id="about"
   style={{
-    backgroundColor: '#191816',
+    backgroundColor: '#0A0A0A',
     padding: '80px 0',
     overflow: 'hidden',
   }}
