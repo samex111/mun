@@ -21,14 +21,21 @@ import AboutHero from "./components/AboutSection";
 import { useEffect, useState } from 'react';
 import { IntroLogo } from "@/components/navigation/IntroLogo";
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(true);
+ const [showIntro, setShowIntro] = useState(false);
 
 useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowIntro(false);
-  }, 2000);
+  const introShown = sessionStorage.getItem('smjmun-intro');
 
-  return () => clearTimeout(timer);
+  if (!introShown) {
+    setShowIntro(true);
+
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+      sessionStorage.setItem('smjmun-intro', 'true');
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }
 }, []);
   return (
     <>
