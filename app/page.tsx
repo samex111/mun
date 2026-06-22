@@ -1,3 +1,4 @@
+'use client'
 import HeroSection from "./components/HeroSection";
 import TrustSection from "./components/TrustSection";
 import AboutWordmark from "./components/AboutWordmark";
@@ -15,11 +16,24 @@ import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import MomentsCollage from "./components/MomentCollage";
 import AboutHero from "./components/AboutSection";
+ 
 
+import { useEffect, useState } from 'react';
+import { IntroLogo } from "@/components/navigation/IntroLogo";
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowIntro(false);
+  }, 2000);
+
+  return () => clearTimeout(timer);
+}, []);
   return (
     <>
       <main className="bg-[#0A0A0A]">
+        <IntroLogo show={showIntro} />
         <HeroSection />
         <AboutHero />
         <AboutWordmark />

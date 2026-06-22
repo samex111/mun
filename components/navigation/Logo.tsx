@@ -14,25 +14,26 @@ export function Logo({ isScrolled }: LogoProps) {
     className="flex items-center gap-3 md:gap-4 group relative z-50"
   >
     {/* Logo */}
-    <motion.div
-      animate={{
-        width: isScrolled ? 64 : 99,
-        height: isScrolled ? 64 : 99,
-      }}
-      transition={{
-        duration: 1,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="relative overflow-hidden shrink-0"
-    >
-      <Image
-        src="/images/smg-mun-logo.png"
-        alt="SMG MUN Logo"
-        fill
-        className="object-contain"
-        priority
-      />
-    </motion.div>
+<motion.div
+  layoutId="smjmun-logo"
+  animate={{
+    width: isScrolled ? 64 : 99,
+    height: isScrolled ? 64 : 99,
+  }}
+  transition={{
+    duration: 1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="relative overflow-hidden shrink-0"
+>
+        <Image
+          src="/images/smg-mun-logo.png"
+          alt="SMG MUN Logo"
+          fill
+          className="object-contain"
+          priority
+        />
+      </motion.div>
 
     {/* Institution Text */}
     <motion.div
