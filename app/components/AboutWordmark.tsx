@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 // ─── SMJ: people, delegates, community ──────────────────────────────────────
 const SMJ_IMAGES = [
-  
+
   '/images/community.jpeg',
   '/images/smj-hero-6.jpeg',
   '/images/community-2.jpeg',
@@ -12,7 +12,7 @@ const SMJ_IMAGES = [
 ];
 
 // ─── MUN: institutional, formal, legacy ─────────────────────────────────────
-const MUN_IMAGE = '/images/treecolour-4.png';
+const MUN_IMAGE = '/images/tree-colour-5.png';
 
 const INTERVAL_MS = 1000;
 const FADE_MS = 800;
@@ -86,7 +86,7 @@ export default function AboutWordmark() {
       <div className="flex flex-col items-center px-4 pt-20 pb-5 md:pt-28 md:pb-10">
 
         {/* Overline */}
-     
+
 
         {/* ── SMJMUN wordmark ──────────────────────────────────────────── */}
         <div
@@ -104,7 +104,7 @@ export default function AboutWordmark() {
           <SMJLetters activeIndex={activeIndex} />
 
           {/* Desktop divider */}
-         
+
 
           {/* MUN — static institutional imagery */}
           <span
@@ -177,7 +177,7 @@ export default function AboutWordmark() {
       {/* <div className="w-full h-px" style={{ backgroundColor: '#1a1a1815' }} /> */}
 
       {/* ── Editorial statement ──────────────────────────────────────────── */}
-{/*       
+      {/*       
        <div className="flex flex-col items-center text-center px-6 pt-20 pb-28">
 
         <h2

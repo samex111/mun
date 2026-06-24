@@ -9,7 +9,7 @@ export const MAIN_NAVIGATION: NavigationItemType[] = [
   // Conferences and Programs are dropdowns, handled separately in the UI, but here are their base paths
   { label: 'Conferences', href: '/conferences' },
   { label: 'Programs', href: '/programs' }, // The route itself might not exist, but it's a structural item
-  { label: 'Media', href: '/media' },
+  // { label: 'Media', href: '/media' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
