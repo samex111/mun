@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
 import SmoothScroll from "./components/SmoothScroll";
 import { montserrat } from "./fonts";
+import SplashCursor from "./components/SplashCursor";
 
 
 
@@ -61,7 +62,17 @@ export default function RootLayout({
       className={cn(playfair.variable, inter.variable, "font-sans", geist.variable, montserrat.variable)}
     >
       <body className="antialiased min-h-screen flex flex-col">
-
+        <SplashCursor
+          DENSITY_DISSIPATION={3.2}
+          VELOCITY_DISSIPATION={2.4}
+          PRESSURE={0.12}
+          CURL={2.8}
+          SPLAT_RADIUS={0.18}
+          SPLAT_FORCE={2200}
+          COLOR_UPDATE_SPEED={8}
+          SHADING
+          RAINBOW_MODE={false}
+COLOR="#A97C50"        />
         <div className="flex-1">
           {/* {children} */}
           <SmoothScroll />
