@@ -16,7 +16,7 @@ export function HeroVideo({ data }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative flex h-[90vh] w-full items-end overflow-hidden">
+    <section className="relative h-screen min-h-[720px] w-full overflow-hidden">
       {/* Background media */}
       {data.videoSrc ? (
         <video
@@ -25,7 +25,7 @@ export function HeroVideo({ data }: HeroVideoProps) {
           muted
           loop
           playsInline
-          className="absolute inset-0 h-full w-full opacity-[0.7] object-cover"
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.85]"
           poster={data.imageSrc}
         >
           <source src={data.videoSrc} type="video/mp4" />
@@ -41,67 +41,76 @@ export function HeroVideo({ data }: HeroVideoProps) {
         />
       )}
 
-      {/* Dark overlay */}
+      {/* Overlay — flat center + left-side gradient, NOT full dark */}
+      <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"
+        className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"
       />
 
-      {/* Content */}
-      <div className="relative z-10 w-full px-6 pb-16 md:px-10 md:pb-20 lg:px-16 lg:pb-24">
-        <div className="mx-auto max-w-[1200px]">
+      {/* Content — vertical center left */}
+      <div className="absolute left-0 top-1/2 z-10 w-full -translate-y-1/2">
+        <div className="mx-auto max-w-[1250px] px-8 lg:px-16">
+
+          {/* Badge */}
           <FadeIn delay={0.2} distance={15}>
-            <p className="mb-4 font-[family-name:var(--font-inter)] text-[11px] font-medium uppercase tracking-[0.25em] text-[#BB8B57]">
-              {data.badge}
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.4} distance={20}>
-            <h1 className="mb-5 max-w-2xl font-[family-name:var(--font-playfair)] text-3xl font-bold leading-[1.05] text-white md:text-4xl lg:text-5xl">
-              {data.heading}
-            </h1>
-          </FadeIn>
-
-          <FadeIn delay={0.6} distance={15}>
-            <p className="mb-7 max-w-md font-[family-name:var(--font-inter)] text-sm leading-relaxed text-white/75">
-              {data.description}
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.8} distance={10}>
-            <div className="flex flex-wrap items-center gap-3">
-              {data.primaryCTA && (
-                <Link
-                  href={data.primaryCTA.href}
-                  className="inline-flex items-center bg-[#83090E] px-6 py-3 font-[family-name:var(--font-inter)] text-xs font-medium uppercase tracking-[0.15em] text-white transition-opacity duration-400 hover:opacity-85"
-                >
-                  {data.primaryCTA.label}
-                </Link>
-              )}
-              {data.secondaryCTA && (
-                <Link
-                  href={data.secondaryCTA.href}
-                  className="inline-flex items-center border border-white/30 px-6 py-3 font-[family-name:var(--font-inter)] text-xs font-medium uppercase tracking-[0.15em] text-white transition-all duration-400 hover:border-white hover:bg-white/5"
-                >
-                  {data.secondaryCTA.label}
-                </Link>
-              )}
+            <div className="mb-6 inline-flex items-center     ">
+              <p className="font-[family-name:var(--font-inter)] bg-gold p-1 text-[11px] font-medium uppercase tracking-[0.18em] text-white/90">
+                {data.badge}
+              </p>
             </div>
           </FadeIn>
+
+          {/* Heading
+          <FadeIn delay={0.4} distance={20}>
+            <h1 className="max-w-[760px] font-[family-name:var(--font-playfair)] text-5xl font-semibold leading-[0.95] tracking-[-0.03em] text-white lg:text-7xl">
+              {data.heading}
+            </h1>
+          </FadeIn> */}
+
+          {/* Description */}
+          <FadeIn delay={0.6} distance={15}>
+            <div className="mt-8 border-l border-[#BB8B57] pl-5">
+              <p className="max-w-xl font-[family-name:var(--font-inter)] text-lg leading-8 text-white/85">
+                {data.description}
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Divider */}
+          <div className="mt-10 h-px w-20 bg-white/20" />
+
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap items-center gap-5">
+            {data.primaryCTA && (
+              <Link
+                href={data.primaryCTA.href}
+                className="inline-flex bg-charcoal items-center   px-8 py-3 font-[family-name:var(--font-inter)] text-xs uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-white hover:text-black"
+              >
+                {data.primaryCTA.label}
+              </Link>
+            )}
+            {data.secondaryCTA && (
+              <Link
+                href={data.secondaryCTA.href}
+                className="font-[family-name:var(--font-inter)] text-sm text-white/70 underline-offset-4 transition hover:underline"
+              >
+                {data.secondaryCTA.label}
+              </Link>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — stacked chevrons, bottom-right like Tata */}
       <motion.div
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
-        animate={{ y: [0, 6, 0] }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        className="absolute bottom-10 right-12 z-10 flex flex-col items-center gap-1"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       >
-        <ChevronDown className="h-5 w-5 text-white/40" />
+        <ChevronDown className="h-6 w-6 text-white/70" />
+        <ChevronDown className="-mt-4 h-6 w-6 text-white/45" />
+        <ChevronDown className="-mt-4 h-6 w-6 text-white/25" />
       </motion.div>
     </section>
   );
