@@ -23,20 +23,22 @@ export function Logo({ isScrolled }: LogoProps) {
       <motion.div
         layoutId="smjmun-logo"
         animate={{
-          width: isScrolled ? 64 : 99,
-          height: isScrolled ? 64 : 99,
+          width: isScrolled ? 48 : 99,
+          height: isScrolled ? 48 : 99,
+          backgroundColor: isScrolled ? '#ffffff' : 'transparent',
+          padding: isScrolled ? 4 : 0,
         }}
         transition={{
           duration: 1,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="relative overflow-hidden shrink-0"
+        className="relative shrink-0 rounded-full overflow-hidden"
       >
         <Image
           src="/images/smg-mun-logo.png"
           alt="SMG MUN Logo"
           fill
-          className="object-conta bg-white rounded-full "
+          className="object-contain rounded-full"
           priority
         />
       </motion.div>
