@@ -88,11 +88,11 @@ export default function AboutWordmark() {
       {/* Wordmark */}
       <div className="flex flex-col items-center px-4 pt-8 pb-5 md:pt-10 md:pb-10">
         <div
-          className="flex flex-col md:flex-row items-center md:items-baseline"
+          className="flex flex-row items-baseline"
           style={{
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: 900,
-            fontSize: 'clamp(96px, 21vw, 200px)',
+            fontSize: 'clamp(40px, 13.5vw, 200px)',
             lineHeight: 0.88,
             letterSpacing: '0.1em',
             userSelect: 'none',

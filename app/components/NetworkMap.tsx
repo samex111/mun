@@ -18,12 +18,25 @@ type City = {
   labelPosition?: 'left' | 'right';
 };
 
+// ---------------------------------------------------------------------------
+// HOW TO MANUALLY TUNE POSITIONS (one at a time):
+//   x → left/right  (0 = far left edge of map, 100 = far right edge)
+//   y → up/down     (0 = top of map, 100 = bottom)
+//
+//   Change ONE city's x or y, save, and check in browser.
+//   The dot AND its connection lines move together — no other file to touch.
+//
+// Derived from Mercator projection (map spans ~180°W→180°E, ~75°N→60°S):
+//   x% = (longitude + 180) / 360 * 100
+//   y% = (75 - latitude)  / 135 * 100
+// ---------------------------------------------------------------------------
 const cities: City[] = [
-  { name: 'NEW YORK',   x: 30.0, y: 48.9 },
-  { name: 'LONDON',     x: 70.0, y: 33.3 },
-  { name: 'DUBAI',      x: 36.7, y: 71.1, labelPosition: 'left' },
-  { name: 'NEW DELHI',  x: 60.0, y: 60.0 },
-  { name: 'SINGAPORE',  x: 91.7, y: 67.8, labelPosition: 'left' },
+  //                                    lon      lat      x%    y%
+  { name: 'NEW YORK',  x: 24.5, y: 33.0 },                // 74°W  41°N
+  { name: 'LONDON',    x: 50.0, y: 25.0 },                // 0°    51°N
+  { name: 'DUBAI',     x: 58.5, y: 57.0, labelPosition: 'left' }, // 55°E  25°N
+  { name: 'NEW DELHI', x: 67.5, y: 59.0 },                // 77°E  29°N
+  { name: 'SINGAPORE', x: 80.0, y: 55.0, labelPosition: 'right' }, // 104°E  1°N
 ];
 
 interface NetworkMapProps {

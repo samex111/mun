@@ -71,8 +71,8 @@ export default function GlobalMovementSection() {
       </div>
 
       {/* ── DESKTOP layout ── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-8 py-16 hidden lg:block">
-        <div className="grid lg:grid-cols-[0.38fr_0.62fr] items-center gap-16 lg:gap-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-8 py-8 mb-6 hidden lg:block">
+        <div className="grid lg:grid-cols-[0.38fr_0.62fr] items-center gap-10 lg:gap-16">
 
           {/* LEFT CONTENT */}
           <div className="max-w-md">
@@ -91,9 +91,9 @@ export default function GlobalMovementSection() {
               viewport={{ once: true }}
               className="font-serif text-white"
               style={{
-                fontSize: 'clamp(28px, 3.5vw, 48px)',
+                fontSize: 'clamp(20px, 2.2vw, 32px)',
                 fontWeight: 700,
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 letterSpacing: '-0.02em',
               }}
             >
@@ -109,26 +109,25 @@ export default function GlobalMovementSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="mt-8 text-[#B8B8B8] text-lg leading-relaxed"
+              className="mt-4 text-[#B8B8B8] text-sm leading-relaxed"
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
             >
-              Our reach extends beyond borders,
-              bringing together future leaders
+              Our reach extends beyond borders, bringing together future leaders
               from across continents.
             </motion.p>
 
-            <motion.div whileHover={{ x: 4 }} className="mt-10">
+            <motion.div whileHover={{ x: 4 }} className="mt-5">
               <button className="btn-ds-secondary">
                 Explore Our Global Reach
                 <span className="btn-ds-arrow">→</span>
               </button>
             </motion.div>
 
-            <div className="mt-14 flex gap-12">
+            <div className="mt-6 flex gap-10">
               <div>
                 <p
                   className="font-serif text-[#BB8B57]"
-                  style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1 }}
+                  style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
                   50K+
                 </p>
@@ -143,7 +142,7 @@ export default function GlobalMovementSection() {
               <div>
                 <p
                   className="font-serif text-[#BB8B57]"
-                  style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1 }}
+                  style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
                   20+
                 </p>
@@ -160,7 +159,7 @@ export default function GlobalMovementSection() {
           {/* RIGHT MAP */}
           <div className="relative">
             <div className="absolute inset-0 bg-[#BB8B57]/10 blur-[140px] rounded-full pointer-events-none" />
-            <div className="relative h-[300px] md:h-[450px]">
+            <div className="relative h-[220px] lg:h-[300px]">
               <NetworkMap />
             </div>
           </div>
