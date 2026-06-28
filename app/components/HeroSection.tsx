@@ -144,7 +144,7 @@ export default function HeroSection() {
               delay: 0.4,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="block text-white"
+            className="block text-charcoal"
           >
             IMPACT.
           </motion.span>
