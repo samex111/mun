@@ -73,6 +73,11 @@ const PROGRAMS = [
   },
 ];
 
+/* Viewport-height units consumed per program step.
+ * 60vh per step → 360vh total for 6 programs.
+ * Reducing from 100vh makes each step trigger with less physical scrolling. */
+const SCROLL_VH_PER_STEP = 60;
+
 /* Height of each tab row — must match the rendered row height */
 const TAB_HEIGHT = 56;
 
@@ -80,13 +85,13 @@ export default function OurProgramsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const sectionRef    = useRef<HTMLDivElement>(null);
-  const displayedIdx  = useRef(0);
+  // Tracks the scroll-driven canonical index (separate from hover previews)
+  const scrollIdx     = useRef(0);
   const hoverTimer    = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /* ── Switch immediately — no artificial delay ───────────────────── */
   const switchTo = useCallback((index: number) => {
-    if (displayedIdx.current === index) return;
-    displayedIdx.current = index;
+    scrollIdx.current = index;
     setActiveIndex(index);
   }, []);
 
@@ -110,16 +115,30 @@ export default function OurProgramsSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [switchTo]);
 
-  /* ── Secondary: tab hover still works as a fine-grained override ──── */
+  /* ── Scroll the page so the section shows the target program ────────────── *
+   * This keeps the scroll driver and the displayed index in sync.           *
+   * Without this, clicking tab 5 while scroll is at program 1 causes the   *
+   * scroll handler to immediately snap back to program 1 on next scroll.    */
+  const scrollToProgram = useCallback((index: number) => {
+    if (!sectionRef.current) return;
+    const sectionTop      = sectionRef.current.getBoundingClientRect().top + window.scrollY;
+    const scrollableHeight = sectionRef.current.offsetHeight - window.innerHeight;
+    // Use (index / PROGRAMS.length) so Math.floor lands cleanly on `index`
+    const target = sectionTop + (index / PROGRAMS.length) * scrollableHeight + 4;
+    window.scrollTo({ top: target, behavior: 'smooth' });
+  }, []);
+
+  /* ── Tab hover: lightweight visual preview (scroll will override on next move) */
   const handleTabHover = useCallback((index: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    hoverTimer.current = setTimeout(() => switchTo(index), 80);
-  }, [switchTo]);
+    hoverTimer.current = setTimeout(() => setActiveIndex(index), 80);
+  }, []);
 
+  /* ── Tab click: scroll the section to the matching position ───────────── */
   const handleTabClick = useCallback((index: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    switchTo(index);
-  }, [switchTo]);
+    scrollToProgram(index);
+  }, [scrollToProgram]);
 
   const active = PROGRAMS[activeIndex];
 
@@ -132,7 +151,7 @@ export default function OurProgramsSection() {
     <div
       ref={sectionRef}
       id="programs"
-      style={{ height: `${PROGRAMS.length * 100}vh` }}
+      style={{ height: `${PROGRAMS.length * SCROLL_VH_PER_STEP}vh` }}
       className="relative"
     >
       {/* ── Sticky viewport — fixed in place while outer div scrolls ── */}
