@@ -12,8 +12,9 @@ export const MAIN_NAVIGATION: NavigationItemType[] = [
   // { label: 'Media', href: '/media' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  // Contact is rendered as the headphone icon button in the header actions area
 ];
+
 
 export const CALL_TO_ACTION = {
   label: 'Register Now',
