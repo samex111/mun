@@ -63,8 +63,8 @@ export default function GlobalMovementSection() {
           </motion.div>
         </div>
 
-        {/* MAP BLOCK — ~45 vh */}
-        <div className="relative w-full" style={{ height: '45vh', minHeight: '220px', maxHeight: '340px' }}>
+        {/* MAP BLOCK — fixed aspect ratio so city % coords match SVG on all screens */}
+        <div className="relative w-full" style={{ aspectRatio: '2 / 1', maxHeight: '320px' }}>
           <div className="absolute inset-0 bg-[#BB8B57]/10 blur-[100px] rounded-full pointer-events-none" />
           <NetworkMap mobile />
         </div>
