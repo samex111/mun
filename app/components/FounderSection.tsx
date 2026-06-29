@@ -1,14 +1,102 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
+
+function AnimatedWord({
+  children,
+  progress,
+  range,
+  isGold = false,
+}: {
+  children: React.ReactNode;
+  progress: MotionValue<number>;
+  range: [number, number];
+  isGold?: boolean;
+}) {
+  const opacity = useTransform(progress, range, [0.14, 1]);
+  // For gold text, it transitions from a dull gold/brown to bright gold
+  const color = useTransform(
+    progress,
+    range,
+    isGold ? ['rgba(187,139,87,0.3)', '#BB8B57'] : ['rgba(255,255,255,0.14)', '#ffffff']
+  );
+
+  return (
+    <motion.span
+      style={{
+        opacity,
+        color: isGold ? color : undefined,
+        display: 'inline-block',
+      }}
+      className={isGold ? '' : 'text-white'}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
+function AnimatedParagraph({
+  text,
+  progress,
+  range,
+  className = '',
+  style = {},
+  isGold = false,
+}: {
+  text: string;
+  progress: MotionValue<number>;
+  range: [number, number];
+  className?: string;
+  style?: React.CSSProperties;
+  isGold?: boolean;
+}) {
+  const words = text.split(' ');
+  const [start, end] = range;
+  const step = (end - start) / words.length;
+
+  return (
+    <p className={className} style={style}>
+      {words.map((word, i) => {
+        const wordStart = start + i * step;
+        const wordEnd = start + (i + 1) * step;
+        return (
+          <span key={i} className="inline-block mr-[0.25em] mb-[0.1em]">
+            <AnimatedWord progress={progress} range={[wordStart, wordEnd]} isGold={isGold}>
+              {word}
+            </AnimatedWord>
+          </span>
+        );
+      })}
+    </p>
+  );
+}
+
 export default function FounderSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // Track scroll over the tall 250vh section.
+  // "start start" -> begins when the top of section hits the top of viewport
+  // "end end" -> ends when the bottom of section hits the bottom of viewport
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end end'],
+  });
+
   return (
     <section
       id="founder"
-      className="bg-transparent py-24 md:py-32 overflow-hidden"
+      ref={sectionRef}
+      className="bg-transparent relative"
+      style={{ height: '250vh' }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start gap-0">
-
-        {/* Portrait */}
+      {/* Sticky Panel that "stops" the scroll */}
+      <div className="sticky top-0 h-[100dvh] w-full flex flex-col justify-center overflow-hidden py-12 md:py-0">
+        <div 
+          className="max-w-[1200px] w-full mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-8 md:gap-0 max-h-full overflow-y-auto"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {/* Portrait */}
         <div className="w-full md:w-[45%] md:flex-shrink-0 relative min-h-[400px] md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none">
           <img
             src="/images/founder-2.jpeg"
@@ -19,9 +107,7 @@ export default function FounderSection() {
         </div>
 
         {/* Text block */}
-        <div
-          className="flex-1 pt-12 md:pt-0 px-0 md:pl-16 lg:pl-20 max-w-full md:max-w-[600px]"
-        >
+        <div className="flex-1 pt-12 md:pt-0 px-0 md:pl-16 lg:pl-20 max-w-full md:max-w-[600px]">
           {/* Accent bar + Label */}
           <div className="flex items-start gap-5 mb-8">
             <div
@@ -44,51 +130,47 @@ export default function FounderSection() {
             </div>
           </div>
 
-          {/* Bio */}
-          <p
-            className="text-[#B8B8B8] mb-10 leading-[1.8]"
+          {/* Bio (Progress range: 0.0 to 0.6) */}
+          <AnimatedParagraph
+            text="A visionary leader who founded SMJ MUN with a singular mission: to democratize access to world-class diplomatic education across India. Under his leadership, SMJ MUN has grown from a single conference to India's largest Model United Nations platform, training over 11,000 delegates across 70+ national and 10+ international conferences."
+            progress={scrollYProgress}
+            range={[0.0, 0.55]}
+            className="mb-10 leading-[1.8]"
             style={{
               fontFamily: 'var(--font-body), system-ui, sans-serif',
               fontSize: '16px',
             }}
-          >
-            A visionary leader who founded SMJ MUN with a singular mission: to democratize
-            access to world-class diplomatic education across India. Under his leadership,
-            SMJ MUN has grown from a single conference to India&apos;s largest Model United
-            Nations platform, training over 11,000 delegates across 70+ national and 10+
-            international conferences.
-          </p>
+          />
 
-          {/* Pull Quote */}
-          <div
-            className="mb-10 pl-6"
-            style={{ borderLeft: '3px solid #BB8B57' }}
-          >
-            <p
-              className="font-serif italic text-[#BB8B57]"
+          {/* Pull Quote (Progress range: 0.55 to 0.7) */}
+          <div className="mb-10 pl-6" style={{ borderLeft: '3px solid #BB8B57' }}>
+            <AnimatedParagraph
+              text="“A Journey Of Thousand Miles.”"
+              progress={scrollYProgress}
+              range={[0.55, 0.7]}
+              isGold={true}
+              className="font-serif italic"
               style={{
                 fontSize: 'clamp(17px, 1.8vw, 22px)',
                 lineHeight: 1.4,
                 fontWeight: 400,
               }}
-            >
-              &ldquo;A Journey Of Thousand Miles.&rdquo;
-            </p>
+            />
           </div>
 
-          {/* Mission */}
-          <p
-            className="text-[#7A7A7A] mb-12 leading-[1.75]"
+          {/* Mission (Progress range: 0.7 to 1.0) */}
+          <AnimatedParagraph
+            text="His mission extends beyond conferences — building institutional partnerships that embed diplomatic thinking into the fabric of Indian education."
+            progress={scrollYProgress}
+            range={[0.7, 1.0]}
+            className="mb-12 leading-[1.75]"
             style={{
               fontFamily: 'var(--font-body), system-ui, sans-serif',
               fontSize: '15px',
             }}
-          >
-            His mission extends beyond conferences — building institutional partnerships
-            that embed diplomatic thinking into the fabric of Indian education.
-          </p>
+          />
 
-          {/* Social Icons */}
+          {/* Social Icons (Static) */}
           <div className="flex gap-5 items-center">
             <a
               href="https://www.linkedin.com/in/theaarushsahu"
@@ -120,6 +202,7 @@ export default function FounderSection() {
               </svg>
             </a>
           </div>
+        </div>
         </div>
       </div>
     </section>

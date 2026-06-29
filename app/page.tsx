@@ -59,9 +59,11 @@ export default function Home() {
 
         <OurProgramsSection />
         {/* <MomentsCollage /> */}
-        <EditorialStatement />
-        <JournalCinematicSection />
+        {/* <EditorialStatement />
+         */}
         <GlobalMovementSection />
+
+        <JournalCinematicSection />
 
         <FounderSection />
         {/* <InstitutionServices /> */}
