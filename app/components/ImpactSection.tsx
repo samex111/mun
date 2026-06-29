@@ -65,7 +65,7 @@ export default function ImpactSection() {
     <section
       ref={sectionRef}
       id="impact"
-      className="relative overflow-hidden bg-[#0A0A0A] py-12"
+      className="relative overflow-hidden bg-transparent py-12"
     >
       {/* Subtle gold circle watermark */}
       <div

@@ -4,7 +4,7 @@ export default function FounderSection() {
   return (
     <section
       id="founder"
-      className="bg-[#0A0A0A] py-24 md:py-32 overflow-hidden"
+      className="bg-transparent py-24 md:py-32 overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start gap-0">
 

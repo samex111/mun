@@ -5,6 +5,7 @@ import AboutWordmark from "./components/AboutWordmark";
 import OurProgramsSection from "./components/OurProgramsSection";
 import ImpactSection from "./components/ImpactSection";
 import EditorialStatement from "./components/EditorialStatement";
+import JournalCinematicSection from "./components/JournalCinematicSection";
 import FounderSection from "./components/FounderSection";
 import GlobalMovementSection from "./components/GlobalMovementSection";
 import InstitutionServices from "./components/InstitutionServices";
@@ -39,8 +40,17 @@ export default function Home() {
   }, []);
   return (
     <>
-      <main className="bg-[#0A0A0A]">
-        <IntroLogo show={showIntro} />
+      <main className="bg-[#0A0A0A] relative">
+        {/* Fixed dot grid background for the entire landing page */}
+        <div 
+          className="fixed inset-0 pointer-events-none z-0" 
+          style={{
+            backgroundImage: 'radial-gradient(rgba(187,139,87, 0.15) 1px, transparent 1px)',
+            backgroundSize: '32px 32px'
+          }} 
+        />
+        <div className="relative z-10 flex flex-col">
+          <IntroLogo show={showIntro} />
         <HeroSection />
         <AboutWordmark />
         <AboutHero />
@@ -50,6 +60,7 @@ export default function Home() {
         <OurProgramsSection />
         {/* <MomentsCollage /> */}
         <EditorialStatement />
+        <JournalCinematicSection />
         <GlobalMovementSection />
 
         <FounderSection />
@@ -59,6 +70,7 @@ export default function Home() {
         {/* <TestimonialsSection /> */}
         {/* <MediaSection /> */}
         <CTASection />
+        </div>
       </main>
       <Footer />
     </>

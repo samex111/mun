@@ -75,7 +75,7 @@ export default function AboutWordmark() {
 
   return (
     <section
-      style={{ backgroundColor: '#0A0A0A' }}
+      style={{ backgroundColor: 'transparent' }}
       className="relative w-full overflow-x-hidden"
     >
       {/* Top rule */}
