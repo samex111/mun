@@ -25,7 +25,7 @@ const PROGRAMS = [
       `Designed specifically for school students, the program focuses on building strong foundational skills while making Model United Nations accessible, engaging, and intellectually stimulating. Participants learn research techniques, speech delivery, committee procedures, and the art of persuasive communication.`,
     ],
     image: '/images/smj-hero-7.jpeg',
-    href: '/School MUN',
+    href: '/programs/school-mun-association',
   },
   {
     id: 'training',
@@ -36,7 +36,7 @@ const PROGRAMS = [
       `Through carefully structured workshops, bootcamps, research modules, and skill-development sessions, the Training Cell ensures that every participant receives world-class mentorship and guidance.`,
     ],
     image: '/images/student-training-2.jpeg',
-    href: '/programs',
+    href: '/programs/training-cell',
   },
   {
     id: 'college-mun',
@@ -47,7 +47,7 @@ const PROGRAMS = [
       `These conferences and initiatives focus on complex policy discussions, strategic negotiations, and high-level committee simulations that mirror the realities of international governance and decision-making. Participants engage with pressing global issues while refining their ability to construct arguments, defend positions, and build consensus.`,
     ],
     image: '/images/moment-1.jpeg',
-    href: '/programs',
+    href: '/programs/college-mun-association',
   },
   {
     id: 'partnerships',
@@ -84,10 +84,10 @@ const TAB_HEIGHT = 56;
 export default function OurProgramsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const sectionRef    = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   // Tracks the scroll-driven canonical index (separate from hover previews)
-  const scrollIdx     = useRef(0);
-  const hoverTimer    = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const scrollIdx = useRef(0);
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /* ── Switch immediately — no artificial delay ───────────────────── */
   const switchTo = useCallback((index: number) => {
@@ -99,15 +99,15 @@ export default function OurProgramsSection() {
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
-      const rect     = sectionRef.current.getBoundingClientRect();
+      const rect = sectionRef.current.getBoundingClientRect();
       const scrolled = -rect.top;
-      const total    = sectionRef.current.offsetHeight - window.innerHeight;
+      const total = sectionRef.current.offsetHeight - window.innerHeight;
 
-      if (scrolled <= 0)     { switchTo(0);                    return; }
+      if (scrolled <= 0) { switchTo(0); return; }
       if (scrolled >= total) { switchTo(PROGRAMS.length - 1); return; }
 
       const progress = scrolled / total;
-      const next     = Math.min(Math.floor(progress * PROGRAMS.length), PROGRAMS.length - 1);
+      const next = Math.min(Math.floor(progress * PROGRAMS.length), PROGRAMS.length - 1);
       switchTo(next);
     };
 
@@ -121,7 +121,7 @@ export default function OurProgramsSection() {
    * scroll handler to immediately snap back to program 1 on next scroll.    */
   const scrollToProgram = useCallback((index: number) => {
     if (!sectionRef.current) return;
-    const sectionTop      = sectionRef.current.getBoundingClientRect().top + window.scrollY;
+    const sectionTop = sectionRef.current.getBoundingClientRect().top + window.scrollY;
     const scrollableHeight = sectionRef.current.offsetHeight - window.innerHeight;
     // Use (index / PROGRAMS.length) so Math.floor lands cleanly on `index`
     const target = sectionTop + (index / PROGRAMS.length) * scrollableHeight + 4;
@@ -177,9 +177,9 @@ export default function OurProgramsSection() {
             aria-hidden
             className="absolute inset-0"
             style={{
-              opacity:        i === activeIndex ? 1 : 0,
-              transition:     'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
-              pointerEvents:  'none',
+              opacity: i === activeIndex ? 1 : 0,
+              transition: 'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
+              pointerEvents: 'none',
             }}
           >
             <img
@@ -227,11 +227,11 @@ export default function OurProgramsSection() {
                 <h2
                   className="font-serif text-white"
                   style={{
-                    fontWeight:    400,
-                    fontSize:      'clamp(52px, 6.5vw, 96px)',
-                    lineHeight:    1.0,
+                    fontWeight: 400,
+                    fontSize: 'clamp(52px, 6.5vw, 96px)',
+                    lineHeight: 1.0,
                     letterSpacing: '-0.02em',
-                    marginBottom:  '28px',
+                    marginBottom: '28px',
                   }}
                 >
                   {active.heading}
@@ -245,10 +245,10 @@ export default function OurProgramsSection() {
                       className="text-[#B8B8B8]"
                       style={{
                         fontFamily: 'var(--font-body), system-ui, sans-serif',
-                        fontSize:   'clamp(14px, 1.1vw, 17px)',
+                        fontSize: 'clamp(14px, 1.1vw, 17px)',
                         lineHeight: 1.75,
                         fontWeight: 400,
-                        margin:     idx < active.body.length - 1 ? '0 0 16px' : '0',
+                        margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
                       }}
                     >
                       {para}
@@ -283,7 +283,7 @@ export default function OurProgramsSection() {
                 <div
                   className="absolute left-0 right-0 h-[2px] bg-[#BB8B57] pointer-events-none"
                   style={{
-                    top:        `${(activeIndex + 1) * TAB_HEIGHT - 2}px`,
+                    top: `${(activeIndex + 1) * TAB_HEIGHT - 2}px`,
                     transition: 'top 480ms cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
                 />
@@ -297,25 +297,25 @@ export default function OurProgramsSection() {
                       onClick={() => handleTabClick(i)}
                       className="group flex items-center justify-between w-full text-left px-6"
                       style={{
-                        height:     `${TAB_HEIGHT}px`,
+                        height: `${TAB_HEIGHT}px`,
                         background: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
-                        borderTop:  isActive ? '1px solid rgba(255,255,255,0.12)' : 'none',
+                        borderTop: isActive ? '1px solid rgba(255,255,255,0.12)' : 'none',
                         borderBottom: '1px solid rgba(255,255,255,0.10)',
-                        cursor:     'pointer',
+                        cursor: 'pointer',
                         transition: 'background 200ms ease',
                       }}
                     >
                       <span
                         className="font-sans"
                         style={{
-                          fontFamily:    'var(--font-body), system-ui, sans-serif',
-                          fontSize:      'clamp(12px, 1.1vw, 14px)',
+                          fontFamily: 'var(--font-body), system-ui, sans-serif',
+                          fontSize: 'clamp(12px, 1.1vw, 14px)',
                           letterSpacing: '0.14em',
                           textTransform: 'uppercase',
-                          color:         isActive ? '#ffffff' : '#7A7A7A',
-                          fontWeight:    isActive ? 500 : 400,
-                          transition:    'color 180ms ease',
-                          whiteSpace:    'nowrap',
+                          color: isActive ? '#ffffff' : '#7A7A7A',
+                          fontWeight: isActive ? 500 : 400,
+                          transition: 'color 180ms ease',
+                          whiteSpace: 'nowrap',
                         }}
                       >
                         {prog.tab}
