@@ -514,6 +514,24 @@ export default function JournalCinematicSection() {
               </motion.div>
             )}
           </AnimatePresence>
+               <motion.div
+  animate={{ y: [0, 12, 0] }}
+  transition={{ repeat: Infinity, duration: 1.8 }}
+  className="absolute bottom-30 left-1/2 -translate-x-1/2 z-10000000 flex flex-col gap-1"
+>
+{[0, 1, 2].map((i) => (
+  <motion.div
+    key={i}
+    animate={{ opacity: [0.2, 1, 0.2] }}
+    transition={{
+      repeat: Infinity,
+      duration: 1.5,
+      delay: i * 0.2,
+    }}
+    className="h-4 w-4 rotate-45 border-b-2 border-r-2 border-white/60"
+  />
+))}
+</motion.div>
         </div>
       </div>
     </section>

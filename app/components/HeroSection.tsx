@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const heroImages = ['/images/ceremony-3.png', '/images/ceremony-2.png', '/images/ceremony-4.png'];
+const heroImages = ['/images/ceremony-4.png' ,  '/images/ceremony-2.png', '/images/ceremony-3.png', ];
 
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
