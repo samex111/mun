@@ -129,7 +129,7 @@ export default function GlobalMovementSection() {
                   className="font-serif text-[#BB8B57]"
                   style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
-                  50K+
+                  11K+
                 </p>
                 <p
                   className="mt-2 text-[#7A7A7A] text-sm"

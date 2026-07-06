@@ -43,89 +43,69 @@ export default function CTASection() {
       <div className="absolute -left-32 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#BB8B57]/10 blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-stretch">
 
-          {/* Left Side */}
+          {/* Left Side — full-bleed image with text overlaid on it */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col h-full"
+            className="relative overflow-hidden min-h-[420px] lg:min-h-0"
+            style={{ borderRadius: '20px' }}
           >
-            {/* Section label */}
-            <span
-              className="section-label mb-6"
-              style={{ color: 'rgba(255,255,255,0.55)' }}
-            >
-              Get In Touch
-            </span>
+            {/* Background image fills the entire column */}
+ <img
+  src="/images/perparestudent.jpeg"
+  alt="SMJMUN"
+  className="
+    absolute inset-0
+    h-full w-full
+    object-cover
+    scale-100
+    lg:object-[50%_25%]
+  "
+/>
 
-            <h2
-              className="font-serif text-white leading-[0.92] mb-6"
+            {/* Overlay for legibility — darker toward the bottom where copy sits */}
+            <div
+              className="absolute inset-0"
               style={{
-                fontSize: 'clamp(28px, 4vw, 52px)',
-                fontWeight: 700,
-                letterSpacing: '-0.02em',
+                background:
+                  'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.15) 75%, rgba(10,10,10,0.05) 100%)',
               }}
-            >
-              Shaping Tomorrow&apos;s
-              Leaders Starts With
-              One Conversation.
-            </h2>
+            />
 
-            {/* Stats */}
-            <div className="mt-2 flex flex-wrap gap-8 md:gap-12">
-              {[
-                ["11,000+", "Delegates"],
-                ["70+", "Conferences"],
-                ["10+", "International"],
-              ].map(([value, label]) => (
-                <div key={label}>
-                  <div
-                    className="font-serif text-white"
-                    style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1 }}
-                  >
-                    {value}
-                  </div>
-                  <div
-                    className="mt-1 uppercase tracking-[0.18em] text-[11px]"
-                    style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-body), system-ui, sans-serif' }}
-                  >
-                    {label}
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Text content, overlaid on the image */}
+            <div className="relative z-10 flex h-full flex-col justify-end p-8 lg:p-10">
+              <span
+                className="section-label mb-6"
+                style={{ color: 'rgba(255,255,255,0.6)' }}
+              >
+                Get In Touch
+              </span>
 
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="hidden lg:block relative mt-10 overflow-hidden flex-shrink-0"
-              style={{
-                height: 'clamp(180px, 28vh, 280px)',
-                borderRadius: '20px',
-              }}
-            >
-              <img
-                src="/images/perparestudent.jpeg"
-                alt="SMJMUN"
-                className="h-full w-full object-cover scale-105"
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to top, rgba(131,9,14,0.8), transparent)' }}
-              />
-              <div className="absolute bottom-7 left-8 max-w-xs">
-                <p className="mb-2 text-xs uppercase tracking-[0.3em] text-[#BB8B57]">Since 2023</p>
-                <h3 className="font-serif text-2xl text-white leading-tight">
-                  Building India&apos;s<br />Future Leaders
-                </h3>
+              <h2
+                className="font-serif text-white leading-[1.12] mb-8"
+                style={{
+                  fontSize: 'clamp(26px, 3.2vw, 36px)',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                Shaping Tomorrow&apos;s Leaders
+                <br />
+                Starts With One Conversation.
+              </h2>
+
+              <div className="flex items-center gap-3">
+                <div className="h-px w-8" style={{ background: '#BB8B57' }} />
+                <p className="text-xs uppercase tracking-[0.3em] text-[#BB8B57]">Since 2023</p>
               </div>
-            </motion.div>
+              <h3 className="mt-2 font-serif text-lg text-white/85 leading-tight">
+                Building India&apos;s Future Leaders
+              </h3>
+            </div>
           </motion.div>
 
           {/* Right Side — Form */}
@@ -134,7 +114,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="card-ds p-8"
+            className="card-ds p-8 flex flex-col justify-center"
             style={{
               background: '#0A0A0A',
               borderRadius: '20px',
