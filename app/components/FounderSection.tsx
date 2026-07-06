@@ -1,7 +1,14 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, MotionValue, useMotionValue } from 'framer-motion';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+  useMotionValue,
+  useMotionValueEvent,
+} from 'framer-motion';
 
 function AnimatedWord({
   children,
@@ -75,7 +82,8 @@ function AnimatedParagraph({
 export default function FounderSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll over the tall 250vh section.
+  // Track scroll over the tall 250vh section (desktop). On mobile the
+  // section is auto-height, so this just tracks normal scroll-through.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
@@ -83,11 +91,20 @@ export default function FounderSection() {
 
   // Track the highest scroll progress achieved so it never reverses
   const maxProgress = useMotionValue(0);
-  
-  // Update maxProgress whenever scrollYProgress increases
-  scrollYProgress.on("change", (latest) => {
+
+  // Once the animation reaches the end, lock it so it never replays
+  // (e.g. if the user scrolls back up and down again) until refresh.
+  const animationCompleted = useRef(false);
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    if (animationCompleted.current) return;
+
     if (latest > maxProgress.get()) {
       maxProgress.set(latest);
+    }
+
+    if (latest >= 1) {
+      animationCompleted.current = true;
     }
   });
 
@@ -95,21 +112,20 @@ export default function FounderSection() {
     <section
       id="founder"
       ref={sectionRef}
-      className="bg-transparent relative"
-      style={{ height: '250vh' }}
+      className="bg-transparent relative h-auto md:h-[250vh]"
     >
-      {/* Sticky Panel that "stops" the scroll */}
-      <div className="sticky top-0 h-[100dvh] w-full flex flex-col justify-center overflow-hidden py-12 md:py-0">
+      {/* Sticky Panel — pins on desktop only; normal flow on mobile */}
+      <div className="relative md:sticky md:top-0 h-auto md:h-[100dvh] w-full flex flex-col justify-center py-12 md:py-0">
         <div
           className="max-w-[1200px] w-full mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-8 md:gap-0 max-h-full overflow-y-auto"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* Portrait */}
-          <div className="w-full md:w-[45%] md:flex-shrink-0 relative min-h-[400px] md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none">
+          <div className="w-full md:w-[45%] md:flex-shrink-0 relative h-[45vh] md:h-auto md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none">
             <img
               src="/images/founder-2.jpeg"
               alt="Aarush Sahu — Founder of SMJ MUN"
-              className="img-zoom absolute inset-0 w-full h-full object-cover"
+              className="img-zoom w-full h-full object-cover md:absolute md:inset-0"
               style={{ borderRadius: '0 20px 20px 0' }}
             />
           </div>
