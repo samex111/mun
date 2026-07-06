@@ -24,14 +24,14 @@ export function DesktopNav() {
     <NavigationMenu
       className="
     hidden
-    md:flex
+    lg:flex
     mx-auto
     z-50
     static 
     
   "
     >
-      <NavigationMenuList className="gap-8 ">
+      <NavigationMenuList className="gap-8 header-nav-tablet">
         {MAIN_NAVIGATION.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 

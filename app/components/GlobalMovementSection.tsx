@@ -64,14 +64,14 @@ export default function GlobalMovementSection() {
         </div>
 
         {/* MAP BLOCK — fixed aspect ratio so city % coords match SVG on all screens */}
-        <div className="relative w-full" style={{ aspectRatio: '2 / 1', maxHeight: '320px' }}>
+        <div className="relative w-full global-map-tablet" style={{ aspectRatio: '2 / 1', maxHeight: '320px' }}>
           <div className="absolute inset-0 bg-[#BB8B57]/10 blur-[100px] rounded-full pointer-events-none" />
           <NetworkMap mobile />
         </div>
       </div>
 
       {/* ── DESKTOP layout ── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-8 py-8 mb-6 hidden lg:block">
+      <div className="relative z-10 mx-auto max-w-7xl px-8 py-8 mb-6 hidden lg:block tablet-global-inner">
         <div className="grid lg:grid-cols-[0.38fr_0.62fr] items-center gap-10 lg:gap-16">
 
           {/* LEFT CONTENT */}

@@ -42,7 +42,7 @@ export default function CTASection() {
       {/* Gold glow left */}
       <div className="absolute -left-32 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#BB8B57]/10 blur-[140px] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10 tablet-cta-container">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-stretch">
 
           {/* Left Side — full-bleed image with text overlaid on it */}
@@ -51,7 +51,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative overflow-hidden min-h-[420px] lg:min-h-0"
+            className="relative overflow-hidden min-h-[420px] lg:min-h-0 cta-img-tablet-sm"
             style={{ borderRadius: '20px' }}
           >
             {/* Background image fills the entire column */}
@@ -114,7 +114,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="card-ds p-8 flex flex-col justify-center"
+            className="card-ds p-8 flex flex-col justify-center cta-form-tablet"
             style={{
               background: '#0A0A0A',
               borderRadius: '20px',

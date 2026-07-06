@@ -685,6 +685,302 @@
     }
   }
 
+  /* ============================================
+     TABLET RESPONSIVENESS — 640px to 1279px
+     Target: Small tablets, iPad Portrait/Landscape
+     ============================================
+     Rules below are additive overrides that only
+     affect the 640–1279px range. Desktop (1280px+)
+     and mobile (<640px) are completely untouched.
+  ============================================ */
+
+  /* ── iPad Landscape / Large Tablets (1024px–1279px) ── */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    /*
+     * Hero: The inline padding: '0 8vw' and max-width: 900px can push
+     * text uncomfortably close to the edge on 1024px screens.
+     * We cap the hero content width to prevent overflow.
+     */
+    .tablet-hero-content {
+      padding-left: 5vw !important;
+      padding-right: 5vw !important;
+    }
+
+    /*
+     * OurProgramsSection LEFT panel uses width: min(900px,100%) with
+     * padding: '64px 100px'. At 1024–1279px, 100px side padding is too
+     * generous and crowds the tab list on the right.
+     */
+    .tablet-programs-left {
+      padding-left: 48px !important;
+      padding-right: 48px !important;
+    }
+
+    /*
+     * FounderSection: The sticky panel has px-12 on the inner container.
+     * The image column md:min-h-[600px] creates excessive height at 1024px.
+     */
+    .tablet-founder-img {
+      min-height: 480px !important;
+    }
+
+    /*
+     * CTASection grid: lg:grid-cols-[1.05fr_0.95fr] activates at 1024px.
+     * On 1024–1279px, the left image column min-h-[420px] is fine but the
+     * total container px can be tightened.
+     */
+    .tablet-cta-container {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    /*
+     * GlobalMovementSection: lg:block activates at 1024px. The desktop
+     * grid at this size benefits from reduced horizontal padding.
+     */
+    .tablet-global-inner {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    /*
+     * Footer desktop grid (lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]) at 1024–1279px
+     * — reduce column gap so links don't wrap awkwardly.
+     */
+    .tablet-footer-desktop {
+      gap: 24px !important;
+    }
+  }
+
+  /* ── iPad Portrait / Tablets (768px–1023px) ── */
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+    /*
+     * HeroSection: The inline max-width 900px for the content block and
+     * paddingBottom 20vh is fine, but on 768px the heading text-6xl
+     * (Tailwind md:text-6xl) can feel very large. The section itself is
+     * already responsive. We add a utility to help the bottom indicator
+     * not clip: md:bottom-30 resolves correctly in Tailwind but here we
+     * ensure the progress bar container has room.
+     */
+    .hero-progress-tablet {
+      bottom: 3rem !important;
+      right: 1.5rem !important;
+    }
+
+    /*
+     * AboutWordmark: The wordmark font uses clamp(42px, 19.5vw, 200px).
+     * At 768px, 19.5vw = 149.76px which is already large but fits.
+     * The section px-4 and pt-8 are fine. The editorial statement max-w-md
+     * can overflow tightly — ensure the wordmark container doesn't clip.
+     */
+    .wordmark-tablet-container {
+      overflow-x: hidden !important;
+    }
+
+    /*
+     * AboutSection: The full-screen section with
+     * "md:object-right" image position — on 768–1023px the gradient
+     * overlay from-black via-black/75 can be too aggressive, obscuring
+     * the image. The content px-8 is tight on 768px.
+     */
+    .about-section-content-tablet {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+
+    /*
+     * ImpactSection: grid-cols-2 md:grid-cols-3 — on 768px the 3-column
+     * layout is correct, but px-6 md:px-12 gives 48px padding at 768px.
+     * The stat numbers use clamp(36px, 4vw, 54px) = 30.72px at 768px
+     * which is good. The border logic (index%2===0 border-r) for 3-col
+     * needs the 3rd column border removed — handled inline already via
+     * lg:border-r-0. The px-6 py-8 per cell is comfortable. No change needed.
+     */
+
+    /*
+     * OurProgramsSection: Below lg (1024px), the component renders the
+     * mobile layout (hidden lg:flex for the left desktop panel).
+     * The right panel uses "w-full h-screen lg:h-auto" — this creates a
+     * full-viewport-height panel on iPad, which is intentional for the
+     * scroll interaction. The pt-20 gives header clearance on mobile but
+     * on iPad portrait it can be reduced since the header is smaller.
+     * The tab rows use height: 56px which stacks well. The mobile content
+     * block below the tabs uses mt-6 pb-8, which is fine.
+     * We improve the right panel: reduce top padding to tighten the layout
+     * so programs content is visible sooner.
+     */
+    .programs-tablet-panel {
+      padding-top: 5rem !important;
+    }
+
+    /*
+     * OurProgramsSection mobile heading: clamp(22px, 6vw, 30px) = 46px at
+     * 768px — this is too large for the heading inside the scroll panel.
+     * We cap it at a comfortable reading size for iPad.
+     */
+    .programs-mobile-heading-tablet {
+      font-size: clamp(22px, 3.5vw, 28px) !important;
+    }
+
+    /*
+     * GlobalMovementSection: Below lg, the mobile layout is shown (flex flex-col).
+     * The text block px-5 pt-8 is compact. The map div uses
+     * aspectRatio: '2/1', maxHeight: 320px — on 768–1023px this is fine
+     * but the map can be slightly taller to use available space.
+     */
+    .global-map-tablet {
+      max-height: 360px !important;
+    }
+
+    /*
+     * JournalCinematicSection: section has py-16 md:py-24 px-4 md:px-6
+     * The card has minHeight: 460px. The content padding: '48px 32px'
+     * with md:!pl-16 = 64px left on 768px. This is good. The card border
+     * radius 24px clips nicely. The sub-copy maxWidth: 360 is fine.
+     * Section px can be increased for better horizontal breathing room.
+     */
+    .journal-section-tablet {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+
+    /*
+     * FounderSection: md:h-[250vh] activates at 768px so iPad portrait
+     * gets the full scroll-driven section. The image column
+     * h-[45vh] md:h-auto md:min-h-[600px] — on 768px the 600px
+     * min-height is too large for portrait orientation (1024px tall screen).
+     * Reduce it to allow the layout to breathe better.
+     */
+    .founder-portrait-tablet {
+      min-height: 420px !important;
+    }
+
+    /*
+     * FounderSection inner flex container: px-6 md:px-12 = 48px. On 768px
+     * the image + text side by side (md:flex-row activates) is feasible
+     * but the text block md:pl-16 = 64px + the image half leaves
+     * little room for the bio text. Use tighter padding on the text.
+     */
+    .founder-text-tablet {
+      padding-left: 2rem !important;
+    }
+
+    /*
+     * CTASection: Below lg the grid stacks to a single column.
+     * The section padding py-24 and px-6 is fine but min-h-[78vh]
+     * with lg: means tablets don't trigger this. The image card
+     * min-h-[420px] is appropriate. The form card p-8 could be p-6.
+     */
+    .cta-form-tablet {
+      padding: 1.5rem !important;
+    }
+
+    /*
+     * CTASection: The grid gap-8 on stacked layout gives good separation.
+     * The outer container px-6 is fine. No changes needed beyond the form.
+     */
+
+    /*
+     * Footer: "hidden lg:grid" means the desktop 4-column footer only
+     * shows at 1024px+. On 768–1023px the mobile footer is shown
+     * (lg:hidden = visible). The mobile footer grid-cols-2 gap-10 is
+     * already good. The newsletter input flex border is fine.
+     * The section pt-16 on the outer is a bit generous — adjust for tablet.
+     */
+    .footer-tablet-pt {
+      padding-top: 3rem !important;
+    }
+
+    /*
+     * Header: The desktop nav (now hidden lg:flex) shows at 1024px+.
+     * On 1024–1023px landscape tablets the NavigationMenuList gap-8
+     * can be tight — reduce it slightly to prevent items pushing CTA off-screen.
+     */
+    .header-nav-tablet {
+      gap: 1rem !important;
+    }
+  }
+
+  /* ── Small Tablets (640px–767px) ── */
+  @media (min-width: 640px) and (max-width: 767px) {
+
+    /*
+     * HeroSection: At 640px, Tailwind md: (768px) hasn't triggered yet.
+     * The heading uses text-5xl (sm) which is 48px. The content has
+     * padding: '0 8vw' = 51.2px per side. The CTA buttons (btn-ds-secondary)
+     * have padding: 13px 28px — both buttons side by side can overflow.
+     * The progress bar indicators w-16 are fine at this size.
+     */
+    .hero-cta-tablet-sm {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+
+    /*
+     * TrustSection: The floral images use w-[110px] (below md). On 640–767px
+     * they should be slightly larger but not full md size. Already handled
+     * by the md: class which kicks in at 768px. No additional change needed.
+     */
+
+    /*
+     * ImpactSection: grid-cols-2 is active at 640–767px (md: not yet triggered).
+     * The stats use px-6 py-8 which is comfortable. The stat number
+     * clamp(36px, 4vw, 54px) = 25.6px at 640px — needs a slightly larger floor.
+     */
+    .impact-stat-tablet-sm {
+      font-size: clamp(32px, 5vw, 42px) !important;
+    }
+
+    /*
+     * OurProgramsSection right panel: w-full h-screen px-6 pt-20.
+     * At 640–767px the header is the same height. The tab rows are 56px
+     * each × 6 tabs = 336px total, which leaves ~360px for the content block.
+     * This is adequate but tight — reduce the tab row height slightly.
+     */
+    .programs-tab-row-sm {
+      height: 52px !important;
+    }
+
+    /*
+     * GlobalMovementSection mobile layout: px-5 pt-8. At 640–767px the
+     * section label + heading + stats row + map all need to fit. The map
+     * max-height: 320px is good. Stats gap-8 is fine.
+     */
+
+    /*
+     * JournalCinematicSection: The card has minHeight: 460px.
+     * At 640–767px with px-4 outer, the content block padding 48px 32px
+     * is proportional. The headline clamp(30px, 4.5vw, 44px) = 28.8px
+     * which is comfortable. No change needed.
+     */
+
+    /*
+     * FounderSection: Below md (768px), the section is auto-height with
+     * no sticky behavior (md:h-[250vh] not active). Layout stacks:
+     * image (h-[45vh]) + text. On 640–767px this works well.
+     * The md:flex-row does NOT activate here so it stays stacked.
+     * The image object-cover with borderRadius '0 20px 20px 0' looks odd
+     * when the image is full-width stacked — this is a pre-existing choice.
+     */
+
+    /*
+     * CTASection: px-6 with stacked layout. The image min-h-[420px]
+     * can be reduced to prevent excessive height on 640–767px.
+     */
+    .cta-img-tablet-sm {
+      min-height: 340px !important;
+    }
+
+    /*
+     * Footer mobile layout: grid-cols-2 gap-10 at 640–767px can be
+     * slightly tighter. The newsletter input and social icons center fine.
+     */
+    .footer-links-tablet-sm {
+      gap: 2rem !important;
+    }
+  }
+
   @media (max-width: 768px) {
     :root {
       --space-section-sm: 60px;

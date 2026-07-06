@@ -209,7 +209,7 @@ export default function OurProgramsSection() {
 
             {/* ── LEFT: heading + body + CTA (desktop) ──────────────── */}
             <div
-              className="hidden lg:flex flex-col justify-center"
+              className="hidden lg:flex flex-col justify-center tablet-programs-left"
               style={{ flex: '0 0 auto', width: 'min(900px, 100%)', padding: '64px 100px' }}
             >
               <div>
@@ -270,7 +270,7 @@ export default function OurProgramsSection() {
             <div className="hidden md:block flex-1" />
 
             {/* ── RIGHT: tab list with sliding gold indicator ────────── */}
-            <div className="flex flex-col justify-start pt-20 lg:justify-center lg:pt-0 w-full h-screen lg:h-auto lg:w-[30vw] px-6 lg:px-0">
+            <div className="flex flex-col justify-start pt-20 lg:justify-center lg:pt-0 w-full h-screen lg:h-auto lg:w-[30vw] px-6 lg:px-0 programs-tablet-panel">
 
               {/* Mobile label */}
               <div className="flex items-center gap-3 mb-2 lg:hidden">
@@ -345,7 +345,7 @@ export default function OurProgramsSection() {
               {/* Mobile content block — active program summary */}
               <div className="lg:hidden mt-6 pb-8">
                 <h3
-                  className="font-serif text-white mb-3"
+                  className="font-serif text-white mb-3 programs-mobile-heading-tablet"
                   style={{
                     fontSize: 'clamp(22px, 6vw, 30px)',
                     fontWeight: 400,

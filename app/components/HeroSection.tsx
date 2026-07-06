@@ -152,6 +152,7 @@ export default function HeroSection() {
 
         {/* CTA Buttons */}
         <div
+          className="hero-cta-tablet-sm"
           style={{
             display: "flex",
             alignItems: "center",

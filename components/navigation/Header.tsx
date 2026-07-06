@@ -40,7 +40,7 @@ export function Header() {
             href="/contact"
             aria-label="Contact Us"
             className={cn(
-              "hidden md:inline-flex items-center gap-2 py-2 px-3 rounded-md font-body text-[13px] font-medium tracking-wider uppercase transition-all duration-300",
+              "hidden lg:inline-flex items-center gap-2 py-2 px-3 rounded-md font-body text-[13px] font-medium tracking-wider uppercase transition-all duration-300",
               isScrolled
                 ? "text-white/70 hover:text-white"
                 : "text-white/80 hover:text-white"
@@ -54,7 +54,7 @@ export function Header() {
           <Link
             href="/conferences"
             className={cn(
-              "hidden md:inline-flex rounded-md items-center justify-center py-3 px-6 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
+              "hidden lg:inline-flex rounded-md items-center justify-center py-3 px-6 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
               isScrolled
                 ? "bg-primary text-white hover:text-black hover:bg-white hover:-translate-y-0.5 shadow-sm"
                 : "bg-white text-primary border border-transparent rounded-md hover:-translate-y-0.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.05)]"

@@ -12,7 +12,7 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex md:hidden items-center gap-1 z-100">
+    <div className="flex lg:hidden items-center gap-1 z-100">
       {/* Contact Us icon — mobile */}
       <Link
         href="/contact"

@@ -15,7 +15,7 @@ export function Logo({ isScrolled }: LogoProps) {
   };
   return (
     <Link
-      href="#hero"
+      href="/"
       className="flex items-center gap-3 md:gap-4 group relative z-50"
       onClick={scrollToHero}
     >

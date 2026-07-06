@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import {
   FaInstagram,
@@ -37,9 +38,14 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+    const scrollToHero = () => {
+    document
+      .getElementById("hero")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <footer className="bg-[#0A0A0A] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20 footer-tablet-pt">
 
         {/* MOBILE */}
         <div className="lg:hidden">
@@ -164,7 +170,7 @@ export default function Footer() {
         </div>
 
         {/* DESKTOP */}
-        <div className="hidden lg:grid lg:grid-cols-[1.3fr_1fr_1fr_1.2fr] gap-12">
+        <div className="hidden lg:grid lg:grid-cols-[1.3fr_1fr_1fr_1.2fr] gap-12 tablet-footer-desktop">
           <div>
             <h4
               className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-6"
@@ -273,12 +279,13 @@ export default function Footer() {
                 <ArrowRight size={16} />
               </button>
             </div>
-
+         <Link href= "/" onClick={scrollToHero} >
             <img
               src="/images/smg-mun-logo.png"
               alt="SMJMUN"
               className="w-24 mt-12 opacity-60"
             />
+            </Link>
           </div>
         </div>
 

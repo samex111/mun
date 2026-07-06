@@ -121,7 +121,7 @@ export default function FounderSection() {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* Portrait */}
-          <div className="w-full md:w-[45%] md:flex-shrink-0 relative h-[45vh] md:h-auto md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none">
+          <div className="w-full md:w-[45%] md:flex-shrink-0 relative h-[45vh] md:h-auto md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none founder-portrait-tablet tablet-founder-img">
             <img
               src="/images/founder-2.jpeg"
               alt="Aarush Sahu — Founder of SMJ MUN"
@@ -131,7 +131,7 @@ export default function FounderSection() {
           </div>
 
           {/* Text block */}
-          <div className="flex-1 pt-12 md:pt-0 px-0 md:pl-16 lg:pl-20 max-w-full md:max-w-[600px]">
+          <div className="flex-1 pt-12 md:pt-0 px-0 md:pl-16 lg:pl-20 max-w-full md:max-w-[600px] founder-text-tablet">
             {/* Accent bar + Label */}
             <div className="flex items-start gap-5 mb-8">
               <div
