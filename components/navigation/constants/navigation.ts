@@ -50,10 +50,10 @@ export const PROGRAMS_MENU = {
     }
   ],
   development: [
-    {
-      title: "Executive Board Program",
-      href: "/programs/executive-board"
-    },
+    // {
+    //   title: "Executive Board Program",
+    //   href: "/programs/executive-board"
+    // },
     {
       title: "Delegate Training Program",
       href: "/programs/delegate-training"
@@ -72,9 +72,9 @@ export const PROGRAMS_MENU = {
       title: "Partnership Program",
       href: "/partnerships"
     },
-    {
-      title: "Institution Services",
-      href: "/programs/institution-services"
-    }
+    // {
+    //   title: "Institution Services",
+    //   href: "/programs/institution-services"
+    // }
   ]
 };

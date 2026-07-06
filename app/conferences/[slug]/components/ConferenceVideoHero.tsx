@@ -23,7 +23,7 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
     <section
       className="relative w-full overflow-hidden flex items-end"
       style={{
-        height: '75vh',
+        height: '90vh',
         minHeight: '520px',
         maxHeight: '860px',
         backgroundColor: '#0A0A0A',

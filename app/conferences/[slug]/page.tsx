@@ -118,12 +118,12 @@ export default async function ConferenceDetailPage({
         </div>
 
         {/* Full Width Sections */}
-        <ConferenceTimeline conference={conference} />
+        {/* <ConferenceTimeline conference={conference} /> */}
         <DelegateExperience />
         <GallerySection conference={conference} />
         <VenueSection conference={conference} />
         <FAQSection />
-        
+
         <RegistrationCTA conference={conference} />
       </main>
       <Footer />

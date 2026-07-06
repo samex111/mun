@@ -40,7 +40,7 @@ export function ProgramsMenu() {
         "
       >
         <div className="grid grid-cols-12 gap-12">
-          
+
           <div className="col-span-3">
             <ProgramColumn
               title="Leadership"
@@ -62,9 +62,9 @@ export function ProgramsMenu() {
             />
           </div>
 
-          <div className="col-span-3">
+          {/* <div className="col-span-3">
             <ProgramFeaturedCard />
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.div>

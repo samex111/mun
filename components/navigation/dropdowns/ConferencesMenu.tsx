@@ -112,8 +112,7 @@ export function ConferencesMenu() {
                 'School Conferences',
                 'College Conferences',
                 'Delegate Training',
-                'Executive Board Program',
-              ].map((item) => (
+                ].map((item) => (
                 <Link
                   key={item}
                   href="/conferences"
@@ -167,9 +166,9 @@ export function ConferencesMenu() {
 
             <div className="space-y-4">
               {[
-                { label: 'Register Delegation', href: '/register' },
-                { label: 'Conference Archive', href: '/conferences' },
-                { label: 'Download Brochure', href: '/conferences' },
+                // { label: 'Register Delegation', href: '/register' },
+                // { label: 'Conference Archive', href: '/conferences' },
+                // { label: 'Download Brochure', href: '/conferences' },
                 { label: 'Partner With Us', href: '/partnerships' },
                 { label: 'Contact Secretariat', href: '/contact' },
               ].map((item) => (

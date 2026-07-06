@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function ConferenceCTA() {
   return (
     <section
-      className="relative py-32 overflow-hidden"
+      className="relative  py-32 overflow-hidden"
       style={{ background: 'linear-gradient(to bottom, #5b0207, #73060b, #83090e)' }}
     >
       {/* Background logo watermark */}
@@ -42,7 +42,7 @@ export default function ConferenceCTA() {
       />
 
       {/* Content */}
-      <div className="content-editorial relative z-20 text-center text-white">
+      <div className=" relative z-20 text-center text-white">
         <span className="section-label block mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
           Join the Movement
         </span>

@@ -72,7 +72,7 @@ export default function RootLayout({
           COLOR_UPDATE_SPEED={8}
           SHADING
           RAINBOW_MODE={false}
-COLOR="#A97C50"        />
+          COLOR="#A97C50" />
         <div className="flex-1">
           {/* {children} */}
           <SmoothScroll />
