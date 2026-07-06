@@ -38,6 +38,8 @@ export function Logo({ isScrolled }: LogoProps) {
           src="/images/smg-mun-logo.png"
           alt="SMG MUN Logo"
           fill
+          sizes="(max-width: 768px) 120px, 180px"
+
           className="object-contain rounded-full"
           priority
         />

@@ -45,7 +45,7 @@ export default function JournalCinematicSection() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: "url('/images/noise.png')",
+            // backgroundImage: "url('/images/noise.png')",
             opacity: 0.04,
             pointerEvents: 'none',
           }}

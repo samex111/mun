@@ -63,7 +63,7 @@ export default function ArticleContent({ post }: ArticleContentProps) {
           >
             <div className="max-w-[720px]">
               {hasContent ? (
-                <div className="article-body">
+                <div className="article-body" style={{ color: "black" }}>
                   <PortableTextRenderer value={post.body!} />
                 </div>
               ) : (
@@ -73,7 +73,7 @@ export default function ArticleContent({ post }: ArticleContentProps) {
               )}
 
               {/* Share buttons below content */}
-              {hasContent && (
+              {hasContent && (  
                 <div className="mt-12 pt-8 border-t border-navy/8">
                   <ShareButtons
                     title={post.title}

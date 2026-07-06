@@ -37,6 +37,8 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
           fill
           priority
           unoptimized
+                      sizes="(max-width: 768px) 100vw, 600px"
+
           className="object-cover animate-[kenBurns_20s_ease-out_infinite_alternate]"
         />
       ) : (

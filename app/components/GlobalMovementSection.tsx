@@ -9,7 +9,7 @@ export default function GlobalMovementSection() {
       {/* Noise texture */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{ backgroundImage: "url('/images/noise.png')" }}
+        // style={{ backgroundImage: "url('/images/noise.png')" }}
       />
 
       {/* Gold glow — right side */}

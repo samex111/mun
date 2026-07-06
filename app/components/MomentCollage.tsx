@@ -42,7 +42,7 @@ export default function MomentsCollage() {
           >
             <div className="bg-[#1a1a1a] p-1 rounded-sm shadow-xl">
               <div className="relative w-42 h-32 md:w-48 md:h-36 overflow-hidden">
-                <Image src={p.src} alt="moment" fill className="object-cover" />
+                <Image src={p.src} alt="moment"  sizes="(max-width: 1024px) 100vw, 55vw" fill className="object-cover" />
               </div>
             </div>
           </div>

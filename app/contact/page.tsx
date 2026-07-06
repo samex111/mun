@@ -232,7 +232,7 @@ export default function ContactPage() {
       />
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
-        style={{ backgroundImage: "url('/images/noise.png')" }}
+        // style={{ backgroundImage: "url('/images/noise.png')" }}
       />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}

@@ -58,6 +58,8 @@ export default function PartnershipsPage() {
         alt="SMJ MUN Partnerships"
         fill
         className="!object-cover" 
+                    sizes="(max-width: 768px) 100vw, 600px"
+
       />
       <div className="!absolute !inset-0 !bg-black/65" />
     </div>

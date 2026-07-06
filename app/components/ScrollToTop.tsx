@@ -29,7 +29,7 @@ export default function ScrollToTop() {
     <button
       onClick={scrollToTop}
    className={`
-fixed bottom-2 right-[45%] md:right-[50%]
+fixed bottom-2 right-[45%] md:left-[50%]
 h-10 w-10
 flex items-center justify-center
 bg-[#C79A46]

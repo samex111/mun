@@ -13,11 +13,11 @@ export default function ConferenceOverview({ conference }: { conference: Confere
       {/* Prose styled to match the dark design system */}
       <div
         className="
-          prose prose-lg prose-invert max-w-none
+          prose prose-lg max-w-none
           prose-headings:font-serif prose-headings:font-bold prose-headings:text-white
-          prose-p:font-sans prose-p:text-[16px] prose-p:leading-[1.85] prose-p:text-white/80
+          prose-p:font-sans prose-p:text-[16px] prose-p:leading-[1.85]
           prose-a:text-[#BB8B57] prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-          prose-li:leading-[1.75] prose-li:text-white/80 prose-strong:text-white
+          prose-li:leading-[1.75] prose-strong:text-white
           prose-hr:border-white/10
         "
         style={{
@@ -28,10 +28,9 @@ export default function ConferenceOverview({ conference }: { conference: Confere
           '--tw-prose-counters': 'rgba(255,255,255,0.5)',
           '--tw-prose-bullets': 'rgba(187,139,87,0.6)',
           '--tw-prose-quotes': 'rgba(255,255,255,0.5)',
-          color: 'rgba(255,255,255,0.65)',
         } as React.CSSProperties}
       >
-        <PortableTextRenderer value={conference.overview} />
+        <PortableTextRenderer theme="dark" value={conference.overview} />
       </div>
     </section>
   );
