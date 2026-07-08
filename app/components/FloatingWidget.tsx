@@ -75,9 +75,7 @@ export default function FloatingContactWidget() {
                   <p className="text-white text-sm font-bold uppercase tracking-wide" style={BODY_FONT}>
                     Connect With Us
                   </p>
-                  <p className="text-[#7A7A7A] text-xs uppercase tracking-wide" style={BODY_FONT}>
-                    We reply fast
-                  </p>
+                  
                 </div>
               </div>
               <button
