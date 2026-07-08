@@ -15,26 +15,12 @@ export function InstallButton({ isScrolled = false, className, variant = 'deskto
   const { isInstallable, isInstalled, installPWA } = usePWAInstall();
 
   // Do not render anything if neither installable nor installed,
-  // to avoid flashing on unsupported browsers.
-  if (!isInstallable && !isInstalled) {
+  // to avoid flashing on unsupported browsers. Also do not render if already installed.
+  if (!isInstallable || isInstalled) {
     return null;
   }
 
   if (variant === 'mobile-drawer') {
-    if (isInstalled) {
-      return (
-        <div
-          className={cn(
-            "flex items-center justify-center w-full py-4 bg-white/5 text-white/50 font-body text-[12px] font-semibold tracking-[0.2em] uppercase transition-all duration-300",
-            className
-          )}
-        >
-          <Check className="w-4 h-4 mr-2" />
-          Installed
-        </div>
-      );
-    }
-
     return (
       <button
         onClick={installPWA}
@@ -49,14 +35,6 @@ export function InstallButton({ isScrolled = false, className, variant = 'deskto
   }
 
   if (variant === 'mobile-header') {
-    if (isInstalled) {
-      return (
-        <div className={cn("p-2 text-white/40", className)}>
-          <Check className="w-5 h-5" strokeWidth={1.5} />
-        </div>
-      );
-    }
-
     return (
       <button
         onClick={installPWA}
@@ -69,21 +47,6 @@ export function InstallButton({ isScrolled = false, className, variant = 'deskto
   }
 
   // Desktop variant
-  if (isInstalled) {
-    return (
-      <div
-        className={cn(
-          "hidden lg:inline-flex rounded-md items-center justify-center p-3 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300 opacity-70",
-          isScrolled
-            ? "bg-transparent text-white/70 border border-white/20"
-            : "bg-transparent text-primary/70 border border-primary/20",
-          className
-        )}
-      >
-        <Check className="w-4 h-4" strokeWidth={1.6} />
-      </div>
-    );
-  }
 
   return (
     <button
