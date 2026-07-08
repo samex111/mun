@@ -56,15 +56,13 @@ export const PROGRAMS_MENU = {
     // },
     {
       title: "Delegate Training Program",
-      href: "/programs/delegate-training"
-    },
-    {
-      title: "Training Cell",
       href: "/programs/training-cell"
     },
+   
     {
       title: "Public Speaking & Diplomacy",
-      href: "/programs/public-speaking"
+      href: "/programs/training-cell"
+      
     }
   ],
   partnerships: [

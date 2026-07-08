@@ -11,31 +11,32 @@ import Link from "next/link";
 
 const conferenceLinks = [
   { label: "Committees", href: "/conferences" },
-  { label: "Agenda",     href: "/conferences" },
-  { label: "Secretariat",href: "/conferences" },
-  { label: "Schedule",   href: "/conferences" },
-  { label: "Venue",      href: "/conferences" },
+  { label: "Agenda", href: "/conferences" },
+  { label: "Secretariat", href: "/conferences" },
+  { label: "Schedule", href: "/conferences" },
+  { label: "Venue", href: "/conferences" },
 ];
 
 const delegateLinks = [
-  { label: "Registration",   href: "/conferences" },
-  { label: "Delegate Guide", href: "/resources"   },
-  { label: "Code of Conduct",href: "/resources"   },
-  { label: "Resources",      href: "/resources"   },
+  // { label: "Registration", href: "/conferences" },
+  { label: "delegate", href: "/programs/training-cell" },
+  { label: "school",href: "/programs/school-mun-association"   },
+  { label: "collage ",href: "/programs/collage-mun-association"   },
+  // { label: "Resources",      href: "/resources"   },
 ];
 
 const organizationLinks = [
-  { label: "About SMJ MUN", href: "/about"        },
-  { label: "Partners",      href: "/partnerships" },
-  { label: "Sponsors",      href: "/partnerships" },
-  { label: "Contact",       href: "/contact"      },
+  { label: "About SMJ MUN", href: "/about" },
+  { label: "Partners", href: "/partnerships" },
+  { label: "Sponsors", href: "/partnerships" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
-  { icon: FaFacebookF,  href: "https://facebook.com"  },
-  { icon: FaLinkedinIn, href: "https://linkedin.com"  },
-  { icon: FaInstagram,  href: "https://instagram.com" },
-  { icon: FaYoutube,    href: "https://youtube.com"   },
+  { icon: FaFacebookF, href: "https://facebook.com" },
+  { icon: FaLinkedinIn, href: "https://linkedin.com" },
+  { icon: FaInstagram, href: "https://www.instagram.com/smjmun" },
+  { icon: FaYoutube, href: "https://youtube.com" },
 ];
 
 function FooterNewsletterForm() {
@@ -135,7 +136,7 @@ function FooterNewsletterForm() {
 }
 
 export default function Footer() {
-    const scrollToHero = () => {
+  const scrollToHero = () => {
     document
       .getElementById("hero")
       ?.scrollIntoView({ behavior: "smooth" });
@@ -174,7 +175,7 @@ export default function Footer() {
                 className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-5"
                 style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
               >
-                Delegates
+                Programs
               </h4>
               <ul className="space-y-3">
                 {delegateLinks.map((item) => (
@@ -344,12 +345,12 @@ export default function Footer() {
             </p>
 
             <FooterNewsletterForm />
-         <Link href= "/" onClick={scrollToHero} >
-            <img
-              src="/images/smg-mun-logo.png"
-              alt="SMJMUN"
-              className="w-24 mt-12 opacity-60"
-            />
+            <Link href="/" onClick={scrollToHero} >
+              <img
+                src="/images/smg-mun-logo.png"
+                alt="SMJMUN"
+                className="w-24 mt-12 opacity-60"
+              />
             </Link>
           </div>
         </div>
