@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 export default function ConferenceVideoHero({ conference }: { conference?: Conference }) {
   const bgUrl = conference?.heroImage

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 export default function ConferenceSidebar({ conference }: { conference: Conference }) {
   return (

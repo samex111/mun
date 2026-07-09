@@ -3,14 +3,9 @@ import type { Metadata } from "next";
 import { Header } from "@/components/navigation/Header";
 
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import {
-  GALLERY_BY_SLUG_QUERY,
-  GALLERIES_QUERY,
-  RELATED_GALLERIES_QUERY,
-} from "@/lib/sanity/queries/gallery";
+import { GalleryService } from "@/lib/sanity/gallery/service";
 import { urlFor } from "@/lib/sanity/image";
-import type { Gallery } from "@/lib/sanity/types";
+import type { Gallery } from "@/lib/sanity/gallery/types";
 
 import CollectionHero from "./components/CollectionHero";
 import CollectionStats from "./components/CollectionStats";
@@ -22,10 +17,7 @@ import CollectionCTA from "./components/CollectionCTA";
 
 // ─── Static Params ───────────────────────────────────────────────────────────
 export async function generateStaticParams() {
-  const galleries = await sanityFetch<Gallery[]>({
-    query: GALLERIES_QUERY,
-    revalidate: 3600,
-  });
+  const galleries = await GalleryService.getGalleries();
   return galleries.map((g) => ({ slug: g.slug.current }));
 }
 
@@ -36,10 +28,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const gallery = await sanityFetch<Gallery | null>({
-    query: GALLERY_BY_SLUG_QUERY,
-    params: { slug },
-  });
+  const gallery = await GalleryService.getGalleryBySlug(slug);
 
   if (!gallery) return { title: "Collection Not Found — SMJ MUN Gallery" };
 
@@ -83,14 +72,8 @@ export default async function GalleryCollectionPage({
   const { slug } = await params;
 
   const [gallery, relatedGalleries] = await Promise.all([
-    sanityFetch<Gallery | null>({
-      query: GALLERY_BY_SLUG_QUERY,
-      params: { slug },
-    }),
-    sanityFetch<Gallery[]>({
-      query: RELATED_GALLERIES_QUERY,
-      params: { slug },
-    }),
+    GalleryService.getGalleryBySlug(slug),
+    GalleryService.getRelatedGalleries(slug),
   ]);
 
   if (!gallery) notFound();

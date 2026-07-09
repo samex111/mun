@@ -1,4 +1,4 @@
-import type { Gallery } from "@/lib/sanity/types";
+import type { Gallery } from "@/lib/sanity/gallery/types";
 import GalleryCard from "./GalleryCard";
 
 interface GalleryGridProps {

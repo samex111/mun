@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from "next-sanity";
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 import PortableTextRenderer from "@/app/components/PortableTextRenderer";
 import ArticleTOC, { type TocHeading } from "./ArticleTOC";
 import ShareButtons from "./ShareButtons";

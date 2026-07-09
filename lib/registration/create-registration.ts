@@ -1,7 +1,7 @@
 import { RegistrationStatus, type Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
 import type { Registration, RegistrationDraft } from "@prisma/client";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 type TransactionClient = Omit<
   Prisma.TransactionClient,

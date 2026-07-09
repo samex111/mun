@@ -1,5 +1,5 @@
 import React from "react";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 import { Calendar, MapPin, CreditCard, Users, Clock, Award } from "lucide-react";
 
 export default function QuickFacts({ conference }: { conference: Conference }) {

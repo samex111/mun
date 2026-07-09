@@ -11,6 +11,7 @@ import SplashCursor from "./components/SplashCursor";
 import FloatingContactWidget from "./components/FloatingWidget";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { Header } from "@/components/navigation/Header";
+import { GlobalChat } from "./components/chat/GlobalChat";
 
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
@@ -152,6 +153,8 @@ export default function RootLayout({
           <ScrollToTop />
           <FloatingContactWidget/>
           <LayoutWrapper header={<Header />}>{children}</LayoutWrapper>
+          <GlobalChat />
+          
         </div>
         <ServiceWorkerRegister />
       </body>

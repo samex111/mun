@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import { BLOG_POSTS_QUERY } from "@/lib/sanity/queries";
-import type { Blog } from "@/lib/sanity/types";
+import { BlogService } from "@/lib/sanity/blog/service";
 
 import BlogPageClient from "./components/BlogPageClient";
 
@@ -28,7 +26,7 @@ export const metadata: Metadata = {
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export default async function BlogPage() {
-  const posts = await sanityFetch<Blog[]>({ query: BLOG_POSTS_QUERY });
+  const posts = await BlogService.getBlogPosts();
 
   const featuredPost = posts.find((p) => p.featured) ?? posts[0];
 

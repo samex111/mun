@@ -1,13 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import {
-  BLOG_POST_BY_SLUG_QUERY,
-  BLOG_POSTS_QUERY,
-} from "@/lib/sanity/queries";
+import { BlogService } from "@/lib/sanity/blog/service";
 import { urlFor } from "@/lib/sanity/image";
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 
 import ArticleHero from "./components/ArticleHero";
 import ArticleCover from "./components/ArticleCover";
@@ -17,10 +13,7 @@ import RelatedArticles from "./components/RelatedArticles";
 
 // ─── Static Params ──────────────────────────────────────────────────────────
 export async function generateStaticParams() {
-  const posts = await sanityFetch<Blog[]>({
-    query: BLOG_POSTS_QUERY,
-    revalidate: 3600,
-  });
+  const posts = await BlogService.getBlogPosts();
   return posts.map((p) => ({ slug: p.slug.current }));
 }
 
@@ -31,10 +24,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await sanityFetch<Blog | null>({
-    query: BLOG_POST_BY_SLUG_QUERY,
-    params: { slug },
-  });
+  const post = await BlogService.getBlogPostBySlug(slug);
 
   if (!post) {
     return { title: "Post Not Found — SMJ MUN Journal" };
@@ -84,11 +74,8 @@ export default async function BlogPostPage({
 
   // Fetch current post and all posts in parallel
   const [post, allPosts] = await Promise.all([
-    sanityFetch<Blog | null>({
-      query: BLOG_POST_BY_SLUG_QUERY,
-      params: { slug },
-    }),
-    sanityFetch<Blog[]>({ query: BLOG_POSTS_QUERY }),
+    BlogService.getBlogPostBySlug(slug),
+    BlogService.getBlogPosts(),
   ]);
 
   if (!post) notFound();

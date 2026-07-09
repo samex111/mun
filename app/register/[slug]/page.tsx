@@ -4,9 +4,8 @@ import type { Metadata } from "next";
 import { RegistrationStatus } from "@prisma/client";
 import Footer from "@/app/components/Footer";
 import RegistrationForm from "@/app/components/RegistrationForm";
-import { sanityFetch } from "@/lib/sanity/client";
-import { CONFERENCE_BY_SLUG_QUERY } from "@/lib/sanity/queries";
-import type { Conference } from "@/lib/sanity/types";
+import { ConferenceService } from "@/lib/sanity/conference/service";
+import type { Conference } from "@/lib/sanity/conference/types";
 import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -75,11 +74,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const conference = await sanityFetch<Conference | null>({
-    query: CONFERENCE_BY_SLUG_QUERY,
-    params: { slug },
-    revalidate: false,
-  });
+  const conference = await ConferenceService.getConferenceBySlug(slug);
 
   if (!conference) {
     return { title: "Registration Not Found — SMJ MUN" };
@@ -102,11 +97,7 @@ export default async function RegisterPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const conference = await sanityFetch<Conference | null>({
-    query: CONFERENCE_BY_SLUG_QUERY,
-    params: { slug },
-    revalidate: false,
-  });
+  const conference = await ConferenceService.getConferenceBySlug(slug);
 
   if (!conference) notFound();
 

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 export default function RegistrationCTA({ conference }: { conference: Conference }) {
   const [isVisible, setIsVisible] = useState(false);

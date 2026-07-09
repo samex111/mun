@@ -1,4 +1,4 @@
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-IN", {

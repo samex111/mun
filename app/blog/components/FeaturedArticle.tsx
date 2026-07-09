@@ -1,7 +1,7 @@
 import Image from "next/image"; 
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity/image";
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-IN", {

@@ -1,4 +1,4 @@
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 import FeaturedArticle from "./FeaturedArticle";
 
 interface BlogHeroProps {

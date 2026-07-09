@@ -4,8 +4,8 @@ import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
-import type { GalleryImage } from "@/lib/sanity/types";
-import { GALLERY_CATEGORY_LABELS } from "@/lib/sanity/types";
+import type { GalleryImage } from "@/lib/sanity/gallery/types";
+import { GALLERY_CATEGORY_LABELS, type GalleryImageCategory } from "@/lib/sanity/gallery/types";
 
 const GalleryLightbox = dynamic(() => import("./GalleryLightbox"), {
   ssr: false,

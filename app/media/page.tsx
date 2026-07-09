@@ -1,10 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import { MEDIA_QUERY } from "@/lib/sanity/queries";
+import { MediaService } from "@/lib/sanity/media/service";
 import { urlFor } from "@/lib/sanity/image";
-import type { Media } from "@/lib/sanity/types";
 
 export const metadata: Metadata = {
   title: "Media & Press | SMJMUN",
@@ -34,7 +32,7 @@ function formatDate(dateStr?: string) {
 }
 
 export default async function MediaPage() {
-  const items = await sanityFetch<Media[]>({ query: MEDIA_QUERY });
+  const items = await MediaService.getMedia();
 
   const featured = items[0];
   const rest = items.slice(1);

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
+    "@google/genai": "^2.10.0",
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "@sanity/image-url": "^2.1.1",
@@ -23,6 +24,7 @@
     "dotenv": "^17.4.2",
     "expresscheckout-nodejs": "^1.0.0",
     "framer-motion": "^12.40.0",
+    "groq-sdk": "^1.3.0",
     "lenis": "^1.3.23",
     "lucide-react": "^1.18.0",
     "next": "16.2.7",

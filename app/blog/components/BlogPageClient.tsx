@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 import BlogHero from "./BlogHero";
 import ArticleGrid from "./ArticleGrid";
 import NewsletterCTA from "./NewsletterCTA";

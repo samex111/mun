@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { RegistrationStatus } from "@prisma/client";
-import { sanityFetch } from "@/lib/sanity/client";
-import { CONFERENCE_BY_SLUG_QUERY } from "@/lib/sanity/queries";
-import type { Conference } from "@/lib/sanity/types";
+import { ConferenceService } from "@/lib/sanity/conference/service";
+import type { Conference } from "@/lib/sanity/conference/types";
 import { db } from "@/lib/db";
 import { normalizeEmail } from "@/lib/validations/registration";
 import { verifyOtpSchema } from "@/lib/validations/verify-otp";
@@ -76,11 +75,7 @@ export async function POST(request: Request) {
       }
     }
 
-    const conference = await sanityFetch<Conference | null>({
-      query: CONFERENCE_BY_SLUG_QUERY,
-      params: { slug: conferenceSlug },
-      revalidate: false,
-    });
+    const conference = await ConferenceService.getConferenceBySlug(conferenceSlug);
 
     if (!conference) {
       return NextResponse.json(

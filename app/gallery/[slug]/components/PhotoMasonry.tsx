@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
-import type { GalleryImage } from "@/lib/sanity/types";
+import type { GalleryImage } from "@/lib/sanity/gallery/types";
 import CategoryFilters from "./CategoryFilters";
 
 const GalleryMasonry = dynamic(

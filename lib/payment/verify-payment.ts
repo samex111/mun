@@ -12,8 +12,7 @@ import {
   unauthorized,
 } from "@/lib/payment/errors";
 import { logPaymentEvent } from "@/lib/payment/log-payment-event";
-import { sanityFetch } from "@/lib/sanity/client";
-import { CONFERENCE_BY_ID_QUERY } from "@/lib/sanity/queries";
+import { ConferenceService } from "@/lib/sanity/conference/service";
 import { sendRegistrationEmail } from "@/lib/email/send-registration-email";
 
 const PENDING_STATUSES = new Set(["PENDING", "PENDING_VBV"]);
@@ -127,11 +126,7 @@ export async function verifyPayment(
     });
 
     try {
-      const conference = await sanityFetch<{ title: string; venue?: string; date: string } | null>({
-        query: CONFERENCE_BY_ID_QUERY,
-        params: { id: updated.conferenceId },
-        revalidate: false,
-      });
+      const conference = await ConferenceService.getConferenceById(updated.conferenceId);
 
       await sendRegistrationEmail({
         to: updated.email,

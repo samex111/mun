@@ -1,13 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import {
-  CONFERENCE_BY_SLUG_QUERY,
-  CONFERENCES_QUERY,
-} from "@/lib/sanity/queries";
+import { ConferenceService } from "@/lib/sanity/conference/service";
 import { urlFor } from "@/lib/sanity/image";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 // Components
 import ConferenceVideoHero from "./components/ConferenceVideoHero";
@@ -24,10 +20,7 @@ import ConferenceSidebar from "./components/ConferenceSidebar";
 
 // ─── Static Params ─────────────────────────────────────────────────
 export async function generateStaticParams() {
-  const conferences = await sanityFetch<Conference[]>({
-    query: CONFERENCES_QUERY,
-    revalidate: 3600,
-  });
+  const conferences = await ConferenceService.getConferences();
   return conferences.map((c) => ({ slug: c.slug.current }));
 }
 
@@ -38,10 +31,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const conference = await sanityFetch<Conference | null>({
-    query: CONFERENCE_BY_SLUG_QUERY,
-    params: { slug },
-  });
+  const conference = await ConferenceService.getConferenceBySlug(slug);
 
   if (!conference) {
     return { title: "Conference Not Found — SMJ MUN" };
@@ -84,10 +74,7 @@ export default async function ConferenceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const conference = await sanityFetch<Conference | null>({
-    query: CONFERENCE_BY_SLUG_QUERY,
-    params: { slug },
-  });
+  const conference = await ConferenceService.getConferenceBySlug(slug);
 
   if (!conference) notFound();
 

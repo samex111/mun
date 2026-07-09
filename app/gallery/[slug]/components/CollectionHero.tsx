@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity/image";
-import type { Gallery } from "@/lib/sanity/types";
+import type { Gallery } from "@/lib/sanity/gallery/types";
 import { MapPin, Calendar, Images, ExternalLink } from "lucide-react";
 
 interface CollectionHeroProps {

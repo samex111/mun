@@ -1,5 +1,5 @@
 import React from "react";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 import { UserCheck, FileEdit, Users, Mic2, Award, BookOpen } from "lucide-react";
 
 export default function ConferenceTimeline({ conference }: { conference: Conference }) {

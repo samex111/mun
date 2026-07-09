@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import { CONFERENCES_QUERY } from "@/lib/sanity/queries";
-import type { Conference } from "@/lib/sanity/types";
+import { ConferenceService } from "@/lib/sanity/conference/service";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 // Components
 import ConferenceVideoHero from "./components/ConferenceVideoHero";
@@ -34,9 +33,7 @@ export const metadata: Metadata = {
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export default async function ConferencesPage() {
-  const conferences = await sanityFetch<Conference[]>({
-    query: CONFERENCES_QUERY,
-  });
+  const conferences = await ConferenceService.getConferences();
 
   const featured = conferences.find(c => c.featured && c.status !== "completed") || conferences.find(c => c.status === "upcoming") || conferences[0];
 

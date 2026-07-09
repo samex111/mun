@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 import ConferenceCard from "./ConferenceCard";
 
 export default function ConferenceTabs({ conferences }: { conferences: Conference[] }) {

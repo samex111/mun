@@ -1,5 +1,5 @@
 import React from "react";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 export default function CommitteeGrid({ conference }: { conference: Conference }) {
   if (!conference.committees || conference.committees.length === 0) return null;

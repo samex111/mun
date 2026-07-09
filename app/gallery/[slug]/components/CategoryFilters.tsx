@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback } from "react";
-import type { GalleryImage } from "@/lib/sanity/types";
-import { GALLERY_CATEGORY_LABELS, type GalleryImageCategory } from "@/lib/sanity/types";
+import type { GalleryImage } from "@/lib/sanity/gallery/types";
+import { GALLERY_CATEGORY_LABELS, type GalleryImageCategory } from "@/lib/sanity/gallery/types";
 
 interface CategoryFiltersProps {
   images: GalleryImage[];

@@ -1,0 +1,52 @@
+"use client";
+
+import React, { useState, KeyboardEvent } from "react";
+import { useChat } from "./ChatContext";
+
+export function ChatInput() {
+  const [input, setInput] = useState("");
+  const { sendMessage, isLoading } = useChat();
+
+  const handleSend = () => {
+    if (input.trim() && !isLoading) {
+      sendMessage(input.trim());
+      setInput("");
+    }
+  };
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  return (
+    <div className="p-4 bg-black/80 backdrop-blur-md border-t border-zinc-800">
+      <div className="relative flex items-center">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Type your message..."
+          disabled={isLoading}
+          className="w-full bg-zinc-900 border border-zinc-700 text-zinc-100 text-sm rounded-full pl-4 pr-12 py-3 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/50 disabled:opacity-50 transition-all placeholder:text-zinc-500"
+        />
+        <button
+          onClick={handleSend}
+          disabled={!input.trim() || isLoading}
+          className="absolute right-2 p-2 rounded-full text-yellow-500 hover:bg-yellow-500/10 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+          aria-label="Send Message"
+        >
+          <svg className="w-5 h-5 translate-x-[1px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+        </button>
+      </div>
+      <div className="text-center mt-2">
+        <p className="text-[10px] text-zinc-600">SMJMUN AI Assistant can make mistakes.</p>
+      </div>
+    </div>
+  );
+}

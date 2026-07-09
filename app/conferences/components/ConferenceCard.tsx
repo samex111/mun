@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 import { MapPin, Calendar, Users } from "lucide-react";
 
 const STATUS_LABEL: Record<string, { text: string; color: string }> = {

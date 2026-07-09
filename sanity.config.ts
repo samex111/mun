@@ -27,6 +27,16 @@ export default defineConfig({
                   .documentId("homepage")
                   .title("Homepage")
               ),
+            // Site Settings — singleton
+            S.listItem()
+              .title("Site Settings")
+              .id("siteSettings")
+              .child(
+                S.document()
+                  .schemaType("siteSettings")
+                  .documentId("siteSettings")
+                  .title("Site Settings")
+              ),
             S.divider(),
             // Conferences
             S.documentTypeListItem("conference").title("Conferences"),
@@ -39,6 +49,9 @@ export default defineConfig({
             S.documentTypeListItem("testimonial").title("Testimonials"),
             // Media / Press
             S.documentTypeListItem("media").title("Media & Press"),
+            S.divider(),
+            // FAQs
+            S.documentTypeListItem("faq").title("FAQs"),
           ]),
     }),
   ],

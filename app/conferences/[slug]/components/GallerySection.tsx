@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 export default function GallerySection({ conference }: { conference: Conference }) {
   if (!conference.gallery || conference.gallery.length === 0) return null;

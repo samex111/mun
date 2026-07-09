@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import type { Gallery } from "@/lib/sanity/types";
+import type { Gallery } from "@/lib/sanity/gallery/types";
 import GalleryGrid from "./GalleryGrid";
 
 interface GalleryPageClientProps {

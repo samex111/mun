@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 import { registrationSchema } from "@/lib/validations/registration";
 import { verifyOtpSchema } from "@/lib/validations/verify-otp";
 

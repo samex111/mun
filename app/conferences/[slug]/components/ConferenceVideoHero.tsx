@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity/image";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 const STATUS_STYLES: Record<string, { text: string; color: string; bg: string; border: string }> = {
   upcoming: { text: "Upcoming", color: 'var(--ds-gold)', bg: 'rgba(187,139,87,0.12)', border: 'rgba(187,139,87,0.35)' },

@@ -1,6 +1,6 @@
 import React from "react";
 import PortableTextRenderer from "@/app/components/PortableTextRenderer";
-import type { Conference } from "@/lib/sanity/types";
+import type { Conference } from "@/lib/sanity/conference/types";
 
 export default function ConferenceOverview({ conference }: { conference: Conference }) {
   if (!conference.overview || conference.overview.length === 0) return null;

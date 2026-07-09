@@ -1,12 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/app/components/Footer";
-import { sanityFetch } from "@/lib/sanity/client";
-import {
-  GALLERIES_QUERY,
-  FEATURED_GALLERY_QUERY,
-} from "@/lib/sanity/queries/gallery";
-import type { Gallery } from "@/lib/sanity/types";
+import { GalleryService } from "@/lib/sanity/gallery/service";
 
 import GalleryHero from "./components/GalleryHero";
 import GalleryStats from "./components/GalleryStats";
@@ -37,8 +32,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 
 export default async function GalleryPage() {
   const [galleries, featuredGallery] = await Promise.all([
-    sanityFetch<Gallery[]>({ query: GALLERIES_QUERY }),
-    sanityFetch<Gallery | null>({ query: FEATURED_GALLERY_QUERY }),
+    GalleryService.getGalleries(),
+    GalleryService.getFeaturedGallery(),
   ]);
 
   const jsonLd = {

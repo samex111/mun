@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import type { Blog } from "@/lib/sanity/types";
+import type { Blog } from "@/lib/sanity/blog/types";
 import ArticleCard from "./ArticleCard";
 import BlogSidebar from "./BlogSidebar";
 import CategoryFilters from "./CategoryFilters";
