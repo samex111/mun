@@ -265,7 +265,7 @@ export function RelatedPrograms({ data, currentSlug }: RelatedProgramsProps) {
         </div>
 
         {/* Mobile carousel */}
-        <div className="sm:hidden">
+        <div className="sm:hidden -mx-6">
           <MobileCarousel items={filtered} />
         </div>
       </Container>
